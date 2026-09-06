@@ -299,10 +299,18 @@ const decksOfSubject = (manifest, subjectSlug) =>
     .filter(([, deck]) => deck.subject === subjectSlug)
     .sort(([, a], [, b]) => a.title.localeCompare(b.title));
 
+/**
+ * GitHub's markdown sanitiser strips `target`, so a README link cannot open a
+ * new tab — verified against its own renderer. The badge is an image inside a
+ * plain link for that reason: it buys the button, not the tab.
+ */
+const addButton = (path, labels) =>
+  `<a href="${importLink(path)}"><img src="../../.github/assets/add-to-stoa.svg" alt="${labels.add}" height="28" /></a>`;
+
 const subjectReadme = (manifest, subjectSlug, subject, labels) => {
   const rows = decksOfSubject(manifest, subjectSlug).map(([path, deck]) => {
     const description = deck.description ? `<br/>${escapeCell(deck.description)}` : '';
-    return `| **${escapeCell(deck.title)}**${description} | ${deck.cardCount} | [${labels.add}](${importLink(path)}) |`;
+    return `| **${escapeCell(deck.title)}**${description} | ${deck.cardCount} | ${addButton(path, labels)} |`;
   });
 
   return [
@@ -347,7 +355,7 @@ const catalogueIndex = (manifest, labels) => {
 
 const LABELS = {
   en: {
-    add: 'Add to Stoa →',
+    add: 'Add to Stoa',
     deck: 'deck',
     decks: 'decks',
     back: 'All subjects',
@@ -355,12 +363,12 @@ const LABELS = {
     colCards: 'Cards',
     colSubject: 'Subject',
     colDecks: 'Decks',
-    footer: 'Opening a link shows the deck before asking for anything — an account is only needed to keep it.',
+    footer: 'A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it. Middle-click or ⌘/Ctrl-click to open it in a new tab.',
     total: (decks, subjects) =>
       `${decks} deck(s) across ${subjects} subject(s). Open a subject to see its decks.`,
   },
   'pt-BR': {
-    add: 'Adicionar ao Stoa →',
+    add: 'Adicionar ao Stoa',
     deck: 'deck',
     decks: 'decks',
     back: 'Todos os assuntos',
