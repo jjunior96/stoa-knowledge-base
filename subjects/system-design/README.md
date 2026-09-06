@@ -11,4 +11,7 @@ Distributed systems, trade-offs and the vocabulary interviews assume you already
 | **CAP Theorem**<br/>Trade-offs, linearizability e PACELC em sistemas distribuídos | 20 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/cap-theorem.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Idempotência**<br/>Por que retentativa segura é um requisito de projeto, não um detalhe de implementação | 12 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/idempotencia.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
-A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it. Middle-click or ⌘/Ctrl-click to open it in a new tab.
+A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.
+
+> [!TIP]
+> 💡 `Middle-click` or `⌘/Ctrl-click` to open it in a new tab.

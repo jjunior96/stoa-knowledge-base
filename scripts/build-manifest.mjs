@@ -363,7 +363,7 @@ const LABELS = {
     colCards: 'Cards',
     colSubject: 'Subject',
     colDecks: 'Decks',
-    footer: 'A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it. Middle-click or ⌘/Ctrl-click to open it in a new tab.',
+    footer: 'A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.\n\n> [!TIP]\n> 💡 `Middle-click` or `⌘/Ctrl-click` to open it in a new tab.',
     total: (decks, subjects) =>
       `${decks} deck(s) across ${subjects} subject(s). Open a subject to see its decks.`,
   },
