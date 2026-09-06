@@ -1,0 +1,13 @@
+pergunta;resposta
+O que torna uma operação idempotente?;Repeti-la produz o mesmo estado final que executá-la uma vez. Não é sobre devolver a mesma resposta, é sobre não acumular efeito.
+Por que idempotência importa mais em sistema distribuído?;Porque o cliente não distingue "a requisição falhou" de "a resposta se perdeu". Sem idempotência, ele não pode tentar de novo com segurança.
+PUT é idempotente e POST não. Isso vale na prática?;É a semântica do HTTP, não uma garantia. Um PUT que faz "saldo += 10" quebra a regra, e um POST com chave de idempotência a respeita.
+O que é uma chave de idempotência?;Um identificador que o cliente gera e envia junto da requisição, para o servidor reconhecer a retentativa como sendo a mesma operação.
+Por que a chave de idempotência tem que vir do cliente?;Porque só ele sabe que a segunda requisição é a mesma intenção da primeira. Uma chave gerada no servidor seria diferente a cada tentativa.
+O que o servidor guarda ao processar uma chave de idempotência?;A chave, o resultado e o estado da operação — para que a retentativa devolva a resposta original em vez de executar de novo.
+Por que gravar o resultado, e não só a chave?;Sem o resultado, a retentativa sabe que não deve reexecutar mas não tem o que responder. O cliente fica sem o id que a primeira chamada criou.
+Qual o risco de uma janela de idempotência curta demais?;Uma retentativa que chega depois da expiração é tratada como operação nova, e o efeito duplica exatamente no caso que a chave existia para proteger.
+Idempotência resolve requisições concorrentes com a mesma chave?;Não por si só. Duas chegando juntas podem passar pela verificação antes de qualquer uma gravar — é preciso travar ou usar uma restrição de unicidade.
+Por que "deletar" costuma ser idempotente e "incrementar" não?;Deletar converge para um estado fixo, então repetir não muda nada. Incrementar acumula, então cada repetição muda o resultado.
+Como tornar um incremento idempotente?;Trocando o efeito relativo por um absoluto, ou registrando as operações já aplicadas por id e ignorando as repetidas.
+Retentativa com backoff dispensa idempotência?;Não. Backoff espaça as tentativas, mas cada uma ainda pode chegar ao servidor — só torna a duplicação mais rara, nunca impossível.
