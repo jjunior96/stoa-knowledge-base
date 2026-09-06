@@ -1,0 +1,323 @@
+<div align="center">
+
+<img src="../../.github/assets/stoa-logo.svg" alt="Stoa" width="220" />
+
+# Base de Conhecimento
+
+**O conteúdo de estudo compartilhado do Stoa, em arquivos simples e publicado por link.**
+
+Você põe um arquivo, sai um link que vira algo estudável — sem precisar de
+conta para ver, e a um clique de guardar.
+
+[English](../../README.md) · [stoaflow.com.br](https://stoaflow.com.br)
+
+</div>
+
+---
+
+## O que é este repositório
+
+Material de estudo que qualquer pessoa pode receber por link. O conteúdo é
+organizado por **assunto** e, dentro do assunto, por **tipo**:
+
+```
+subjects/system-design/decks/cap-theorem.csv
+         └─ assunto ──┘ └tipo┘ └─── nome ──┘
+```
+
+O Stoa o entrega por um link que cabe na descrição de um vídeo, num post ou
+numa mensagem do Discord:
+
+```
+stoaflow.com.br/import?path=subjects/system-design/decks/cap-theorem.csv
+```
+
+Quem abre vê o que o conteúdo tem **antes** de precisar de qualquer coisa. Quem
+já tem conta copia para a própria coleção com um clique; quem não tem, cria a
+conta e volta para o mesmo link.
+
+**Decks de flashcards são o tipo publicado hoje.** A estrutura, o manifesto e a
+automação são todos por tipo, então mapas mentais e o que vier depois entram
+sem mexer no que já funciona — veja
+[Adicionando um tipo novo](#adicionando-um-tipo-novo).
+
+Este repositório é **público e mantido pela comunidade**. Qualquer pessoa pode
+abrir um pull request com um deck novo, ou com correções e acréscimos a um deck
+que já existe — veja [Como contribuir](#como-contribuir).
+
+Ele guarda só conteúdo. Nada de código que roda em produção, nada de dado de
+usuário — apenas o material e o manifesto que o publica.
+
+## Como o conteúdo chega ao Stoa
+
+```
+arquivo neste repo  →  manifest.json  →  API do Stoa  →  a biblioteca de quem clicou
+```
+
+1. A API carrega o `manifest.json` e procura o path pedido **como chave**.
+2. Um path que não é chave é recusado como "não encontrado", e o arquivo nunca
+   é buscado — nem para saber se existe.
+3. Só depois que a busca pela chave dá certo é que a API lê aquele arquivo, faz
+   o parse e responde com o conteúdo.
+
+**A regra de ouro: um arquivo fora do manifesto é inalcançável por link.** É
+isso que impede uma requisição de chegar a qualquer coisa que não seja material
+publicado de propósito — o path nunca é concatenado numa URL: ou ele casa com
+uma chave publicada, ou a requisição para ali.
+
+Você não mantém o manifesto na mão. Veja [Automação](#automação).
+
+## Estrutura do repositório
+
+```
+subjects/
+  <assunto>/
+    subject.json          # opcional: títulos e descrições
+    decks/
+      <nome>.csv          # deck de flashcards — um card por linha
+manifest.json             # gerado — não edite
+scripts/
+  build-manifest.mjs      # o gerador
+docs/i18n/
+  README.<locale>.md      # traduções do README
+```
+
+Um assunto é uma pasta dentro de `subjects/`. Dentro dela, cada tipo de
+conteúdo tem a própria pasta — `decks/` hoje — para que um assunto carregue
+vários tipos de material lado a lado.
+
+## Como adicionar um deck
+
+1. Crie `subjects/<assunto>/decks/<nome>.csv`.
+2. Abra um pull request.
+
+É todo o fluxo. O manifesto é reconstruído para você quando o PR abre, e o deck
+entra no ar quando ele é mergeado.
+
+O nome do arquivo vira o slug e o título padrão, então `cap-theorem.csv`
+publica como *"Cap Theorem"*. Quando você quiser um título melhor do que um
+nome de arquivo permite — maiúsculas, uma sigla, uma descrição — coloque no
+arquivo de metadados do assunto.
+
+## Formato dos decks de flashcards
+
+Um flashcard por linha, dois campos: a pergunta (frente) e a resposta (verso).
+
+Respostas são texto corrido, e texto corrido é cheio de vírgula, então **o
+separador a usar é `;`**:
+
+```csv
+pergunta;resposta
+O que o teorema CAP afirma?;Durante uma partição de rede, um sistema distribuído preserva consistência ou disponibilidade, nunca as duas.
+O que é linearizabilidade?;O sistema se comporta como se houvesse uma cópia só.
+```
+
+O cabeçalho é opcional e reconhecido nos dois idiomas (`pergunta;resposta` /
+`question,answer`). Arquivos separados por vírgula continuam funcionando, assim
+como campos entre aspas — mas um deck separado por vírgula perde tudo depois da
+primeira vírgula de uma resposta, a menos que toda resposta esteja entre aspas.
+Por isso o `;` é o padrão.
+
+Uma linha sem um dos dois lados é ignorada, em vez de publicada pela metade. Um
+arquivo em que nenhuma linha tem os dois lados não é publicado.
+
+## Metadados do assunto
+
+Cada assunto pode ter um `subject.json` ao lado das pastas de tipo. Ele nomeia
+o assunto e, se você quiser, dá ao conteúdo títulos e descrições melhores do
+que um nome de arquivo permite:
+
+```json
+{
+  "title": "System Design",
+  "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
+  "decks": {
+    "cap-theorem": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+    }
+  }
+}
+```
+
+Tudo nele é opcional, e é organizado por tipo — um bloco `maps` futuro fica ao
+lado de `decks`. Um assunto sem `subject.json` publica normalmente; o título
+sai do nome da pasta.
+
+## O manifesto
+
+`manifest.json` é **gerado**, nunca editado à mão. É o único arquivo que o Stoa
+lê para montar o catálogo, então ele carrega tudo que uma listagem precisa —
+título, assunto, tamanho, última atualização — e nada que obrigue a baixar um
+arquivo de conteúdo sequer:
+
+```json
+{
+  "version": 1,
+  "subjects": {
+    "system-design": {
+      "title": "System Design",
+      "description": "Distributed systems, trade-offs …",
+      "deckCount": 1
+    }
+  },
+  "decks": {
+    "subjects/system-design/decks/cap-theorem.csv": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC …",
+      "subject": "system-design",
+      "slug": "cap-theorem",
+      "cardCount": 20,
+      "updatedAt": "2026-09-06T05:45:53-03:00"
+    }
+  }
+}
+```
+
+Há **um índice por tipo de conteúdo**, e `decks` é o único até agora. Um tipo
+novo acrescenta uma chave ao lado, em vez de mudar essa — então nada que já lê
+`decks` precisa ser tocado.
+
+Cada índice é um mapa plano com o path exato como chave, de propósito. A API
+resolve uma requisição com uma única busca por chave, e é isso que torna path
+traversal impossível por construção, não por filtro. O `subjects` fica ao lado
+dos índices para agrupar, de modo que uma vitrine possa ser renderizada só com
+este arquivo.
+
+## Automação
+
+O `.github/workflows/manifest.yml` reconstrói o manifesto a partir do que está
+de fato em `subjects/`:
+
+| Quando | O que acontece |
+| --- | --- |
+| PR que mexe em `subjects/` | O manifesto é reconstruído e commitado na branch |
+| O mesmo, vindo de um fork | O run falha e pede que você reconstrua — a branch de um fork não é gravável |
+| Push na `main` | O manifesto é reconstruído e commitado, como rede de segurança |
+
+Como o manifesto é derivado em vez de mantido, ele não tem como divergir:
+conteúdo não pode ser publicado sem entrada, e uma entrada não sobrevive ao
+arquivo que ela aponta.
+
+Para rodar por conta própria:
+
+```bash
+node scripts/build-manifest.mjs           # reconstrói o manifest.json
+node scripts/build-manifest.mjs --check   # falha se estiver desatualizado
+```
+
+Precisa de Node 20+ e nenhuma dependência.
+
+## Como contribuir
+
+O catálogo só é tão bom quanto o que a comunidade coloca nele. Correções, decks
+novos e flashcards a mais num deck existente são todos bem-vindos — e você não
+precisa conhecer o código do Stoa para adicionar um.
+
+### 1. Pegue o repositório
+
+```bash
+# Faça o fork no GitHub primeiro, depois:
+git clone https://github.com/<seu-usuario>/stoa-knowledge-base.git
+cd stoa-knowledge-base
+git checkout -b deck/system-design-consistencia
+```
+
+Você precisa de Node 20+ para rodar a validação abaixo. Não há nada a instalar.
+
+### 2. Adicione ou edite o conteúdo
+
+**Um deck novo** — crie `subjects/<assunto>/decks/<nome>.csv`, usando `;` como
+separador:
+
+```csv
+pergunta;resposta
+O que é um índice coberto?;Um índice que responde a query inteira, sem ir à tabela.
+```
+
+Use um assunto que já exista quando couber. Um assunto novo é só uma pasta
+nova — adicione um `subject.json` ao lado de `decks/` se quiser um título
+decente.
+
+**Flashcards num deck existente** — acrescente linhas ao CSV. Mantenha uma
+ideia por card: um card que pergunta duas coisas ao mesmo tempo não tem como
+ser avaliado honestamente, e a repetição espaçada depende dessa avaliação.
+
+**Um título ou descrição melhor** — edite o `subject.json` do assunto.
+
+### 3. Valide antes de dar push
+
+```bash
+node scripts/build-manifest.mjs
+```
+
+É o mesmo comando que a CI roda. Ele reconstrói o `manifest.json` e diz o que
+encontrou:
+
+```
+manifest.json rebuilt — 1 deck(s) across 1 subject(s).
+```
+
+Confira a contagem de cards que ele reporta contra o que você escreveu — uma
+contagem menor que o número de linhas significa que algumas foram descartadas
+por faltar um dos lados. Se um arquivo não puder ser publicado, o comando falha
+e diz por quê:
+
+```
+error: "subjects/x/decks/y.csv" holds no usable question and answer pair.
+       Check the separator (";") and that every row has both sides.
+```
+
+Ele também avisa sobre o erro que de outra forma seria invisível — um arquivo
+separado por vírgula cujas respostas têm vírgula, em que tudo depois da
+primeira é cortado em silêncio:
+
+```
+warning: "…/y.csv" is comma separated and 3 row(s) split into more than two
+         fields — those answers are being cut at their first comma. Use ";".
+```
+
+Commite o `manifest.json` junto com o seu conteúdo.
+
+### 4. Abra o pull request
+
+```bash
+git add .
+git commit -m "feat: add consistency deck to system design"
+git push origin deck/system-design-consistencia
+```
+
+Depois abra o PR no GitHub. O que acontece em seguida:
+
+- O workflow **Manifest** reconstrói o `manifest.json`. Vindo de uma branch
+  deste repositório, ele commita o resultado para você; vindo de um fork, ele
+  falha e pede que você rode o comando acima — a branch de um fork não é
+  gravável pela CI.
+- Alguém da manutenção revisa o conteúdo.
+- No merge, o deck está no ar: o link dele funciona na hora, sem deploy.
+
+### O que faz um bom card
+
+- **Uma ideia por card.** Separe "o que é X e quando usar" em dois.
+- **Responda o que foi perguntado.** O verso é a resposta, não uma aula em
+  volta dela.
+- **Escreva como você falaria.** Isso é lido no celular, entre uma coisa e
+  outra.
+- **Prefira o porquê ao o quê.** "Por que um quórum não garante
+  linearizabilidade?" dura mais que "quantos nós tem um quórum?".
+
+## Adicionando um tipo novo
+
+Só jogar um arquivo numa pasta nova não basta — um tipo só é publicado quando
+alguma coisa sabe lê-lo. São três passos aditivos, nenhum deles mudando como os
+decks se comportam:
+
+1. **Escolha a pasta e o formato do arquivo**, ex.: `subjects/<assunto>/maps/<nome>.json`.
+2. **Ensine o gerador** (`scripts/build-manifest.mjs`) a varrer essa pasta e
+   escrever um índice `maps` ao lado de `decks`, com a medida de tamanho que
+   fizer sentido para o tipo — o manifesto existe para que uma listagem nunca
+   precise baixar o arquivo em si.
+3. **Ensine a API do Stoa** a resolver esse índice e a fazer o parse do formato.
+
+Até o passo 3 entrar, arquivos do tipo novo ficam no repositório sem serem
+publicados, que é o lado seguro para falhar.

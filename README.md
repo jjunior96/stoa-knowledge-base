@@ -1,0 +1,317 @@
+<div align="center">
+
+<img src="./.github/assets/stoa-logo.svg" alt="Stoa" width="220" />
+
+# Knowledge Base
+
+**Stoa's shared study content, kept as plain files and published by link.**
+
+Drop a file in, get a link that turns into something studiable — no account
+required to look, one click to keep.
+
+[Português](./docs/i18n/README.pt-BR.md) · [stoaflow.com.br](https://stoaflow.com.br)
+
+</div>
+
+---
+
+## What this repository is
+
+Study material that anyone can be handed by link. Content is organised by
+**subject**, and within a subject by **type**:
+
+```
+subjects/system-design/decks/cap-theorem.csv
+         └─ subject ─┘ └type┘ └─── name ───┘
+```
+
+Stoa serves it through a link that fits in a video description, a blog post or
+a Discord message:
+
+```
+stoaflow.com.br/import?path=subjects/system-design/decks/cap-theorem.csv
+```
+
+Whoever opens it sees what the content holds **before** being asked for
+anything. If they already have an account, one click copies it into their own
+collection; if they don't, they create one and land back on the same link.
+
+**Flashcard decks are the type published today.** The layout, the manifest and
+the automation are all built per-type, so mind maps and whatever comes next
+join without disturbing what already works — see
+[Adding a new content type](#adding-a-new-content-type).
+
+This repository is **public and community-maintained**. Anyone can open a pull
+request with a new deck, or with fixes and additions to an existing one — see
+[Contributing](#contributing).
+
+It holds content only. No code that runs in production, no user data — just the
+material and the manifest that publishes it.
+
+## How content reaches Stoa
+
+```
+file in this repo  →  manifest.json  →  Stoa API  →  the reader's library
+```
+
+1. The API loads `manifest.json` and looks up the requested path **as a key**.
+2. A path that is not a key is refused as "not found", and the file is never
+   fetched — not even to check whether it exists.
+3. Only after the lookup succeeds does the API read that file, parse it and
+   answer with the content.
+
+**The golden rule: a file that is not in the manifest is unreachable by link.**
+That is what keeps a request from reaching anything but material someone
+deliberately published — the path never gets concatenated into a URL, it either
+matches a published key or the request stops.
+
+You do not maintain the manifest by hand. See [Automation](#automation).
+
+## Repository layout
+
+```
+subjects/
+  <subject>/
+    subject.json          # optional: titles and descriptions
+    decks/
+      <name>.csv          # flashcard deck — one card per line
+manifest.json             # generated — do not edit
+scripts/
+  build-manifest.mjs      # the generator
+docs/i18n/
+  README.<locale>.md      # README translations
+```
+
+A subject is a folder under `subjects/`. Inside it, each content type gets its
+own folder — `decks/` today — so a subject can carry several kinds of material
+side by side.
+
+## Adding a deck
+
+1. Create `subjects/<subject>/decks/<name>.csv`.
+2. Open a pull request.
+
+That is the whole flow. The manifest is rebuilt for you when the pull request
+opens, and the deck goes live when it merges.
+
+The file name becomes the slug and the default title, so `cap-theorem.csv`
+publishes as *"Cap Theorem"*. When you want a better title than a file name can
+give — capitalisation, an acronym, a description — put it in the subject's
+metadata file.
+
+## Flashcard deck format
+
+One flashcard per line, two fields: the question (front) and the answer (back).
+
+Answers are prose, and prose is full of commas, so **`;` is the separator to
+use**:
+
+```csv
+question;answer
+O que o teorema CAP afirma?;Durante uma partição de rede, um sistema distribuído preserva consistência ou disponibilidade, nunca as duas.
+O que é linearizabilidade?;O sistema se comporta como se houvesse uma cópia só.
+```
+
+The header row is optional and recognised in both languages (`question,answer`
+/ `pergunta;resposta`). Comma-separated files still work, and so do quoted
+fields — but a comma-separated deck will lose everything after the first comma
+in an answer unless every answer is quoted, which is why `;` is the default.
+
+A row missing either side is skipped rather than published half-empty. A file
+where no row has both sides is not published at all.
+
+## Subject metadata
+
+Each subject may carry a `subject.json` next to its type folders. It names the
+subject and, optionally, gives its content better titles and descriptions than
+a file name can:
+
+```json
+{
+  "title": "System Design",
+  "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
+  "decks": {
+    "cap-theorem": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+    }
+  }
+}
+```
+
+Everything in it is optional, and it is keyed by type — a future `maps` block
+sits beside `decks`. A subject with no `subject.json` publishes fine; its title
+is derived from the folder name.
+
+## The manifest
+
+`manifest.json` is **generated**, never edited by hand. It is the one file Stoa
+reads to render the catalogue, so it carries everything a listing needs —
+title, subject, size, last update — and nothing that would require downloading
+a single content file:
+
+```json
+{
+  "version": 1,
+  "subjects": {
+    "system-design": {
+      "title": "System Design",
+      "description": "Distributed systems, trade-offs …",
+      "deckCount": 1
+    }
+  },
+  "decks": {
+    "subjects/system-design/decks/cap-theorem.csv": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC …",
+      "subject": "system-design",
+      "slug": "cap-theorem",
+      "cardCount": 20,
+      "updatedAt": "2026-09-06T05:45:53-03:00"
+    }
+  }
+}
+```
+
+There is **one index per content type**, and `decks` is the only one so far. A
+new type adds a key beside it rather than changing this one, so nothing that
+already reads `decks` has to be touched.
+
+Each index is a flat map keyed by the exact path on purpose. The API resolves a
+request with a single keyed lookup, which is what makes path traversal
+impossible by construction rather than by filtering. `subjects` sits beside the
+indexes for grouping, so a catalogue view can be rendered from this file alone.
+
+## Automation
+
+`.github/workflows/manifest.yml` rebuilds the manifest from what is actually in
+`subjects/`:
+
+| When | What happens |
+| --- | --- |
+| A pull request touching `subjects/` | The manifest is rebuilt and committed to the branch |
+| The same, from a fork | The run fails and asks you to rebuild it yourself — a fork's branch is not writable |
+| A push to `main` | The manifest is rebuilt and committed, as a safety net |
+
+Because the manifest is derived rather than maintained, it cannot drift:
+content cannot be published without an entry, and an entry cannot outlive the
+file it points at.
+
+To run it yourself:
+
+```bash
+node scripts/build-manifest.mjs           # rebuild manifest.json
+node scripts/build-manifest.mjs --check   # fail if it is out of date
+```
+
+Needs Node 20+ and no dependencies.
+
+## Contributing
+
+The catalogue is only as good as what the community puts in it. Corrections,
+new decks and extra flashcards on an existing deck are all welcome, and you do
+not need to know the Stoa codebase to add one.
+
+### 1. Get the repository
+
+```bash
+# Fork it on GitHub first, then:
+git clone https://github.com/<your-user>/stoa-knowledge-base.git
+cd stoa-knowledge-base
+git checkout -b deck/system-design-consistency
+```
+
+You need Node 20+ to run the validation below. There is nothing to install.
+
+### 2. Add or edit the content
+
+**A new deck** — create `subjects/<subject>/decks/<name>.csv`, using `;` as the
+separator:
+
+```csv
+pergunta;resposta
+O que é um índice coberto?;Um índice que responde a query inteira, sem ir à tabela.
+```
+
+Use an existing subject when one fits. A new subject is just a new folder —
+add a `subject.json` next to `decks/` if you want a proper title.
+
+**Flashcards on an existing deck** — append rows to the CSV. Keep one idea per
+card: a card that asks two things at once cannot be graded honestly, and
+spaced repetition depends on that grade.
+
+**A better title or description** — edit the subject's `subject.json`.
+
+### 3. Validate before you push
+
+```bash
+node scripts/build-manifest.mjs
+```
+
+This is the same command CI runs. It rebuilds `manifest.json` and tells you
+what it found:
+
+```
+manifest.json rebuilt — 1 deck(s) across 1 subject(s).
+```
+
+Read the card count it reports and check it against what you wrote — a count
+lower than your number of rows means some rows were dropped for missing a side.
+If a file cannot be published at all, the command fails and says why:
+
+```
+error: "subjects/x/decks/y.csv" holds no usable question and answer pair.
+       Check the separator (";") and that every row has both sides.
+```
+
+It also warns about the mistake that is otherwise invisible — a comma-separated
+file whose answers contain commas, where everything past the first comma is
+silently cut:
+
+```
+warning: "…/y.csv" is comma separated and 3 row(s) split into more than two
+         fields — those answers are being cut at their first comma. Use ";".
+```
+
+Commit `manifest.json` together with your content.
+
+### 4. Open the pull request
+
+```bash
+git add .
+git commit -m "feat: add consistency deck to system design"
+git push origin deck/system-design-consistency
+```
+
+Then open the PR on GitHub. What happens next:
+
+- The **Manifest** workflow rebuilds `manifest.json`. From a branch in this
+  repository it commits the result for you; from a fork it fails and asks you
+  to run the command above — a fork's branch is not writable by CI.
+- A maintainer reviews the content.
+- On merge, the deck is live: its link works immediately, with no deploy.
+
+### What makes a good card
+
+- **One idea per card.** Split "what is X and when do you use it" into two.
+- **Answer the question asked.** The back should be the answer, not a lecture
+  around it.
+- **Write it as you would say it.** These are read on a phone, between things.
+- **Prefer why over what.** "Why does a quorum not give linearizability?"
+  outlives "how many nodes are in a quorum?".
+
+## Adding a new content type
+
+Dropping a file into a new folder is not enough on its own — a type is only
+published once something knows how to read it. It takes three additive steps,
+none of which changes how decks behave:
+
+1. **Pick the folder and the file format**, e.g. `subjects/<subject>/maps/<name>.json`.
+2. **Teach the generator** (`scripts/build-manifest.mjs`) to scan that folder
+   and write a `maps` index beside `decks`, with whatever size figure makes
+   sense for the type — the manifest exists so a listing never has to download
+   the file itself.
+3. **Teach the Stoa API** to resolve that index and parse the format.
+
+Until step 3 lands, files of the new type sit in the repository unpublished,
+which is the safe direction to fail in.
