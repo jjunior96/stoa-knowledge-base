@@ -1,0 +1,6 @@
+{
+  "subjects/system-design/decks/cap-theorem.csv": {
+    "title": "CAP Theorem",
+    "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+  }
+}
