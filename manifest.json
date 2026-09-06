@@ -1,6 +1,19 @@
 {
-  "subjects/system-design/decks/cap-theorem.csv": {
-    "title": "CAP Theorem",
-    "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+  "version": 1,
+  "subjects": {
+    "system-design": {
+      "title": "System Design",
+      "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
+      "deckCount": 1
+    }
+  },
+  "decks": {
+    "subjects/system-design/decks/cap-theorem.csv": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos",
+      "subject": "system-design",
+      "slug": "cap-theorem",
+      "cardCount": 20
+    }
   }
 }

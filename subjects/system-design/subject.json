@@ -1,0 +1,10 @@
+{
+  "title": "System Design",
+  "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
+  "decks": {
+    "cap-theorem": {
+      "title": "CAP Theorem",
+      "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+    }
+  }
+}

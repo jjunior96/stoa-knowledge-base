@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 120" width="250" height="120" role="img" aria-label="Stoa">
+  <title>Stoa</title>
+  <defs>
+    <linearGradient id="stoaBrand" x1="0" y1="0" x2="250" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B899FF" />
+      <stop offset="40%" stop-color="#9466FF" />
+      <stop offset="100%" stop-color="#B899FF" />
+    </linearGradient>
+
+    <!--
+      The centre of the S is a hole, not a filled circle. Painting it with the
+      app background would show as a dark blob on GitHub's light theme, so it is
+      masked out and stays genuinely transparent on any backdrop.
+    -->
+    <mask id="stoaCore" maskUnits="userSpaceOnUse">
+      <rect x="-40" y="-40" width="220" height="220" fill="#fff" />
+      <circle cx="60" cy="60" r="26" fill="#000" />
+    </mask>
+  </defs>
+
+  <g transform="translate(0, 10) scale(0.85)">
+    <g mask="url(#stoaCore)">
+      <path
+        d="M 90 26 H 50 A 17 17 0 0 0 33 43 A 17 17 0 0 0 50 60 H 70 A 17 17 0 0 1 87 77 A 17 17 0 0 1 70 94 H 30"
+        fill="none"
+        stroke="url(#stoaBrand)"
+        stroke-width="38"
+        stroke-linecap="round"
+      />
+    </g>
+    <circle cx="60" cy="60" r="14" fill="none" stroke="url(#stoaBrand)" stroke-width="2.5" />
+  </g>
+
+  <text
+    x="95"
+    y="100"
+    font-size="95"
+    font-weight="800"
+    letter-spacing="-0.04em"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    fill="url(#stoaBrand)"
+  >toa</text>
+</svg>
