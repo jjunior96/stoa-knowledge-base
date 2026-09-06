@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116" height="28" viewBox="0 0 116 28" role="img" aria-label="Add to Stoa">
+  <title>Add to Stoa</title>
+  <!--
+    One asset, reused on every deck row. The fill is the app's own dark canvas
+    rather than the brand purple: a page listing twenty decks then reads as a
+    column of quiet badges instead of twenty purple blocks, and the mark alone
+    carries the colour.
+
+    The mark is the S monolith at 18px. Its centre is punched with the pill's
+    own colour rather than a mask — the backdrop here is known and solid, so a
+    plain circle is exact where a mask has to reason about coordinate spaces.
+    The logo's inner lens ring is dropped: at this size it turns to mud.
+  -->
+  <rect x="0.5" y="0.5" width="115" height="27" rx="6" fill="#1B2136" stroke="#9466FF" stroke-opacity="0.35" />
+
+  <g transform="translate(6.13, 3.81) scale(0.17)">
+    <path
+      d="M 90 26 H 50 A 17 17 0 0 0 33 43 A 17 17 0 0 0 50 60 H 70 A 17 17 0 0 1 87 77 A 17 17 0 0 1 70 94 H 30"
+      fill="none"
+      stroke="#9466FF"
+      stroke-width="38"
+      stroke-linecap="round"
+    />
+    <circle cx="60" cy="60" r="26" fill="#1B2136" />
+  </g>
+
+  <text
+    x="32"
+    y="18.5"
+    font-size="12"
+    font-weight="600"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    fill="#E1E4EC"
+  >Add to Stoa</text>
+</svg>
