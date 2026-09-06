@@ -1,0 +1,31 @@
+#!/bin/sh
+# Rebuilds the manifest from what you are committing and stages the result, so a
+# deck can never be committed without its entry. Also refuses content nobody
+# could study — a wrong separator, a broken subject.json.
+#
+# Enable with: git config core.hooksPath .githooks
+# Skip once with: git commit --no-verify
+
+set -e
+
+if ! git diff --cached --quiet -- subjects/ scripts/build-manifest.mjs 2>/dev/null; then
+  :
+else
+  exit 0
+fi
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-commit: node is not on PATH, skipping the manifest rebuild." >&2
+  exit 0
+fi
+
+node scripts/build-manifest.mjs
+
+# The generator writes the manifest and the rendered catalogue pages; staging
+# only some of them would commit a half-updated catalogue.
+GENERATED="manifest.json README.md docs/i18n subjects"
+
+if ! git diff --quiet -- $GENERATED 2>/dev/null; then
+  git add -- $GENERATED
+  echo "pre-commit: the catalogue was rebuilt and added to this commit."
+fi

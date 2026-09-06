@@ -1,0 +1,87 @@
+name: Validate
+
+# Runs on every pull request, including ones that touch no deck: a change to the
+# generator, the workflow or a subject.json can invalidate the catalogue just as
+# easily as a bad CSV.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Parses every CSV and subject.json, and fails on content that could never
+      # be published: an unreadable deck, a malformed subject file.
+      - name: Every deck and subject file is readable
+        run: node scripts/build-manifest.mjs --check
+
+      - name: The manifest agrees with the repository
+        run: |
+          node - <<'NODE'
+          const { readFileSync, existsSync, readdirSync, statSync } = require('node:fs');
+          const { join } = require('node:path');
+
+          const manifest = JSON.parse(readFileSync('manifest.json', 'utf8'));
+          const problems = [];
+
+          if (manifest.version !== 1) {
+            problems.push(`unknown manifest version: ${manifest.version}`);
+          }
+
+          // Every published path must exist, or a link 404s after the API has
+          // already vouched for it.
+          for (const [path, deck] of Object.entries(manifest.decks ?? {})) {
+            if (!existsSync(path)) problems.push(`manifest lists "${path}", which is not in the repository`);
+            if (!manifest.subjects?.[deck.subject]) {
+              problems.push(`"${path}" names subject "${deck.subject}", which the manifest does not describe`);
+            }
+            if (!(deck.cardCount > 0)) problems.push(`"${path}" is published with no cards`);
+          }
+
+          // Every deck on disk must be published, or a contributor's file is
+          // silently unreachable.
+          const subjectsDir = 'subjects';
+          for (const subject of readdirSync(subjectsDir)) {
+            const decksDir = join(subjectsDir, subject, 'decks');
+            if (!existsSync(decksDir) || !statSync(decksDir).isDirectory()) continue;
+            for (const file of readdirSync(decksDir)) {
+              if (!file.toLowerCase().endsWith('.csv')) continue;
+              const path = `${subjectsDir}/${subject}/decks/${file}`;
+              if (!manifest.decks?.[path]) problems.push(`"${path}" is in the repository but not published`);
+            }
+          }
+
+          if (problems.length > 0) {
+            for (const problem of problems) console.error(`error: ${problem}`);
+            process.exit(1);
+          }
+
+          const deckCount = Object.keys(manifest.decks ?? {}).length;
+          const subjectCount = Object.keys(manifest.subjects ?? {}).length;
+          console.log(`catalogue is consistent — ${deckCount} deck(s) across ${subjectCount} subject(s).`);
+          NODE
+
+      - name: The hooks stay runnable
+        run: |
+          for hook in .githooks/pre-commit .githooks/pre-push; do
+            test -x "$hook" || { echo "::error::$hook is not executable"; exit 1; }
+            sh -n "$hook" || { echo "::error::$hook is not valid shell"; exit 1; }
+          done
+          echo "hooks are executable and parse."

@@ -1,0 +1,15 @@
+#!/bin/sh
+# Last gate before the branch leaves the machine: the manifest must already
+# match the content. CI would catch it, but finding out here costs seconds
+# instead of a round trip.
+#
+# Skip once with: git push --no-verify
+
+set -e
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-push: node is not on PATH, skipping the manifest check." >&2
+  exit 0
+fi
+
+node scripts/build-manifest.mjs --check
