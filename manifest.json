@@ -4,7 +4,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 1
+      "deckCount": 2
     }
   },
   "decks": {
@@ -14,6 +14,13 @@
       "subject": "system-design",
       "slug": "cap-theorem",
       "cardCount": 20
+    },
+    "subjects/system-design/decks/idempotencia.csv": {
+      "title": "Idempotência",
+      "description": "Por que retentativa segura é um requisito de projeto, não um detalhe de implementação",
+      "subject": "system-design",
+      "slug": "idempotencia",
+      "cardCount": 12
     }
   }
 }

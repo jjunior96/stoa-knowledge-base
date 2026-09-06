@@ -5,6 +5,10 @@
     "cap-theorem": {
       "title": "CAP Theorem",
       "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos"
+    },
+    "idempotencia": {
+      "title": "Idempotência",
+      "description": "Por que retentativa segura é um requisito de projeto, não um detalhe de implementação"
     }
   }
 }
