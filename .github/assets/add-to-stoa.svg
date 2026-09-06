@@ -9,7 +9,10 @@
     The mark is the S monolith at 18px. Its centre is punched with the pill's
     own colour rather than a mask — the backdrop here is known and solid, so a
     plain circle is exact where a mask has to reason about coordinate spaces.
-    The logo's inner lens ring is dropped: at this size it turns to mud.
+
+    The lens ring is stroked at 5 rather than the logo's 2.5. The mark renders
+    at 18px here, where 2.5 lands under half a pixel and disappears; 5 is the
+    thinnest ring that survives. Do not "restore" it to 2.5.
   -->
   <rect x="0.5" y="0.5" width="115" height="27" rx="6" fill="#1B2136" stroke="#9466FF" stroke-opacity="0.35" />
 
@@ -22,6 +25,7 @@
       stroke-linecap="round"
     />
     <circle cx="60" cy="60" r="26" fill="#1B2136" />
+    <circle cx="60" cy="60" r="14" fill="none" stroke="#9466FF" stroke-width="5" />
   </g>
 
   <text
