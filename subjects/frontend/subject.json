@@ -1,0 +1,14 @@
+{
+  "title": "Frontend",
+  "description": "React, browser and interface engineering — the concepts behind the code you write every day",
+  "decks": {
+    "react-core-concepts": {
+      "title": "React: Conceitos Essenciais",
+      "description": "Componente, props e estado, render versus commit, e onde o estado deve morar"
+    },
+    "react-virtual-dom": {
+      "title": "React: Virtual DOM e Reconciliação",
+      "description": "A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é arquitetura de software?;O conjunto de decisões estruturais caras de reverter depois. O que é barato de trocar é design de implementação.
+O que separa arquitetura de design?;O custo da reversão. Reorganizar uma função é design — trocar o banco ou o modelo de comunicação é arquitetura.
+O que são requisitos não funcionais?;As qualidades exigidas do sistema — desempenho, disponibilidade, segurança, evolução. São eles que decidem a arquitetura, não a lista de features.
+O que é um atributo de qualidade?;Uma característica mensurável do sistema, como latência ou testabilidade, usada como critério objetivo de decisão arquitetural.
+O que é um trade-off arquitetural?;Ganhar um atributo de qualidade pagando com outro. Nenhuma decisão melhora todos ao mesmo tempo.
+O que é acoplamento?;O quanto uma parte precisa saber da outra para funcionar. Quanto maior, mais longe uma mudança se propaga.
+O que é coesão?;O quanto o que está junto muda pelo mesmo motivo. Módulo coeso muda inteiro ou não muda.
+O que é um ADR?;Architecture Decision Record: registro curto da decisão, do contexto e das alternativas descartadas. Guarda o porquê depois que o time troca.
+Quando uma decisão arquitetural precisa ser tomada cedo?;Quando é difícil reverter. As reversíveis devem ser adiadas até existir informação para decidir.
+Por onde começar a arquitetura de um sistema novo?;Pelos requisitos não funcionais e pelos limites do domínio. A escolha de framework é consequência, não ponto de partida.
+Como saber se um limite entre módulos está sendo respeitado?;Automatizando: teste de arquitetura ou lint de dependência que falha no CI. Diagrama não segura importação nenhuma.
+Monolito é uma arquitetura ruim?;Não, é o ponto de partida correto na maioria dos casos. Microsserviço resolve escala de time e de deploy, e cobra operação por isso.
+Quem é o arquiteto de software num time?;É um papel, não necessariamente um cargo. Toda decisão cara de reverter é arquitetura, e quem escreve o código toma boa parte delas.
+Por que não existe "a arquitetura certa"?;Porque ela é resposta a um contexto de time, prazo, escala e domínio. Mudou o contexto, mudou a resposta.
+O que é dívida arquitetural?;Estrutura que já não atende ao requisito atual e cobra juros em cada feature nova. Diferente de código feio, não se paga refatorando uma classe.

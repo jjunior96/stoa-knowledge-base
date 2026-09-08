@@ -21,6 +21,14 @@
     "offline-first-vs-local-first": {
       "title": "Offline-First vs Local-First",
       "description": "Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe"
+    },
+    "microfrontends": {
+      "title": "Microfrontends",
+      "description": "Independência de deploy, composição em runtime, Module Federation e o custo operacional que vem junto"
+    },
+    "software-architecture": {
+      "title": "Arquitetura de Software",
+      "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa"
     }
   }
 }

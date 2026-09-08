@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é o Virtual DOM?;Uma árvore de objetos JavaScript que descreve a interface desejada. É representação em memória, não o DOM do navegador.
+Por que o React usa Virtual DOM?;Porque comparar objetos em memória é barato e escrever no DOM é caro. A comparação decide o mínimo que precisa ser escrito.
+Virtual DOM é mais rápido que manipular o DOM diretamente?;Não. DOM direto e bem feito é mais rápido — o Virtual DOM troca um pouco de desempenho pela dispensa de escrever essa manipulação à mão.
+O que o React faz com as duas árvores virtuais?;Compara nó a nó e gera a lista mínima de operações a aplicar no DOM real.
+Qual a complexidade do algoritmo de diff do React?;Linear, por duas heurísticas: tipos diferentes produzem árvores diferentes, e a key identifica filhos estáveis entre renders.
+O que acontece no diff quando o tipo do elemento muda?;O React destrói a subárvore inteira e monta outra, perdendo o estado dos componentes de dentro.
+O que é o Fiber?;A reimplementação do reconciliador que quebra o trabalho de render em unidades interrompíveis, permitindo priorizar atualizações urgentes.
+Virtual DOM e Shadow DOM são a mesma coisa?;Não. Shadow DOM é API do navegador para encapsular estilo e marcação — Virtual DOM é estrutura interna de biblioteca.
+Como o React decide reaproveitar um componente entre renders?;Pela posição na árvore e pelo tipo, mais a key quando é lista. Mesmo tipo na mesma posição significa mesmo componente e mesmo estado.
+Por que mover um componente de posição zera o estado dele?;Porque a identidade dele é a posição na árvore. Outra posição é, para o React, outro componente.
+Alternar entre dois tipos diferentes num ternário preserva o estado?;Não, os tipos diferem e a subárvore é remontada. Para preservar, mantenha o mesmo tipo e mude só as props.
+Todo framework moderno usa Virtual DOM?;Não. Svelte e Solid compilam atualizações direcionadas e dispensam a árvore intermediária.
+O Virtual DOM evita renderizações desnecessárias?;Não. Ele barateia a aplicação da mudança — evitar o render é trabalho de memo, de estado bem posicionado e de key correta.
+Por que "Virtual DOM deixa o React rápido" é uma resposta rasa?;Porque o ganho real é previsibilidade: você descreve o estado final e o React resolve o caminho. Velocidade é consequência, não a promessa.
+Onde o Virtual DOM não ajuda em nada?;Em render caro de CPU. Se o componente demora para calcular a própria árvore, o diff já chega tarde.

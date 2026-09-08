@@ -1,13 +1,44 @@
 {
   "version": 1,
   "subjects": {
+    "engineering-practices": {
+      "title": "Engineering Practices",
+      "description": "How a team works on the same codebase without stepping on each other — version control, review and delivery",
+      "deckCount": 1
+    },
+    "frontend": {
+      "title": "Frontend",
+      "description": "React, browser and interface engineering — the concepts behind the code you write every day",
+      "deckCount": 2
+    },
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 5
+      "deckCount": 7
     }
   },
   "decks": {
+    "subjects/engineering-practices/decks/git-best-practices.csv": {
+      "title": "Boas Práticas com Git",
+      "description": "Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico",
+      "subject": "engineering-practices",
+      "slug": "git-best-practices",
+      "cardCount": 15
+    },
+    "subjects/frontend/decks/react-core-concepts.csv": {
+      "title": "React: Conceitos Essenciais",
+      "description": "Componente, props e estado, render versus commit, e onde o estado deve morar",
+      "subject": "frontend",
+      "slug": "react-core-concepts",
+      "cardCount": 15
+    },
+    "subjects/frontend/decks/react-virtual-dom.csv": {
+      "title": "React: Virtual DOM e Reconciliação",
+      "description": "A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve",
+      "subject": "frontend",
+      "slug": "react-virtual-dom",
+      "cardCount": 15
+    },
     "subjects/system-design/decks/cap-theorem.csv": {
       "title": "CAP Theorem",
       "description": "Trade-offs, linearizability e PACELC em sistemas distribuídos",
@@ -36,11 +67,25 @@
       "slug": "localidade-e-hierarquia-de-memoria",
       "cardCount": 15
     },
+    "subjects/system-design/decks/microfrontends.csv": {
+      "title": "Microfrontends",
+      "description": "Independência de deploy, composição em runtime, Module Federation e o custo operacional que vem junto",
+      "subject": "system-design",
+      "slug": "microfrontends",
+      "cardCount": 15
+    },
     "subjects/system-design/decks/offline-first-vs-local-first.csv": {
       "title": "Offline-First vs Local-First",
       "description": "Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe",
       "subject": "system-design",
       "slug": "offline-first-vs-local-first",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/software-architecture.csv": {
+      "title": "Arquitetura de Software",
+      "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa",
+      "subject": "system-design",
+      "slug": "software-architecture",
       "cardCount": 15
     }
   }

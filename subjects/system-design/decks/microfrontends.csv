@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é um microfrontend?;Uma fatia vertical da aplicação, do dado à interface, que um time desenvolve e coloca em produção sozinho.
+Que problema o microfrontend resolve?;O acoplamento de deploy: vários times travados na mesma esteira de um front monolítico. O problema é de organização, não de código.
+O que é composição, no contexto de microfrontends?;A forma como os fragmentos independentes viram uma página só. Pode acontecer em build, no servidor ou em runtime no navegador.
+Qual a diferença entre compor em build time e em runtime?;Em build time os fragmentos viram um pacote único e todo deploy é conjunto. Em runtime cada um sobe sozinho, que é o ponto inteiro do modelo.
+O que é Module Federation?;Mecanismo do bundler que carrega módulos de outro build em runtime e permite declarar dependências compartilhadas entre os fragmentos.
+O que é o app shell?;O host que carrega, posiciona e orquestra os microfrontends: roteamento, layout e o que for global.
+Por que microfrontend exige contrato explícito?;Porque sem ele o acoplamento volta invisível. O contrato define o que cada fragmento expõe e o que assume do host.
+Como microfrontends devem se comunicar?;Por evento ou por URL, nunca por import direto de estado alheio. Chamada direta recria a dependência de deploy que o modelo veio quebrar.
+Como evitar que cada microfrontend baixe seu próprio React?;Declarando as dependências pesadas como compartilhadas e singleton na federação, com faixa de versão combinada entre os times.
+Cada microfrontend pode usar um framework diferente?;Tecnicamente pode, e quase nunca compensa: duplica runtime no navegador, duplica o design system e espalha o conhecimento do time.
+Como manter consistência visual entre times independentes?;Design system versionado e distribuído como pacote. CSS global vaza entre fragmentos e transforma estilo em acoplamento.
+Como tratar autenticação entre microfrontends?;Como responsabilidade do shell, que resolve a sessão uma vez e entrega o token pelo contrato. Cada fragmento fazendo login é sessão duplicada.
+Qual o maior custo escondido do microfrontend?;Operação: build, versionamento, observabilidade e rollback multiplicados pelo número de fragmentos.
+Como um microfrontend quebrado deve afetar a página?;Só a própria área. Sem isolamento de erro no shell, um fragmento derruba a aplicação inteira e o modelo perde o sentido.
+Quando não usar microfrontend?;Time único, produto pequeno ou domínio ainda indefinido. Você paga por independência de deploy que ainda não precisa.

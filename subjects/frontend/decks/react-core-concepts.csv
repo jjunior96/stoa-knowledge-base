@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é um componente em React?;Uma função que recebe dados e devolve a descrição da interface. A mesma entrada precisa devolver a mesma saída.
+Qual a diferença entre props e estado?;Props vêm de fora e são imutáveis dentro do componente. Estado nasce dentro e muda ao longo do tempo.
+O que dispara uma nova renderização?;Mudança de estado ou de contexto no componente, ou a re-renderização do pai. Alterar uma variável comum não dispara nada.
+Por que o estado do React precisa ser tratado como imutável?;Porque a detecção de mudança é por referência. Mutar o objeto existente mantém a referência e o React não vê alteração alguma.
+O que é a fase de render?;Chamar o componente para obter a nova árvore de elementos. Nada do DOM real foi tocado ainda.
+O que é a fase de commit?;A fase em que o React aplica no DOM apenas as diferenças encontradas entre a árvore nova e a anterior.
+O que é reconciliação?;A comparação entre a árvore nova e a anterior para decidir o mínimo de alteração no DOM.
+Para que serve a key numa lista?;Dar identidade estável a cada item, para o React saber o que moveu em vez de recriar.
+Por que não usar o índice do array como key?;Porque a identidade muda quando a lista reordena ou remove um item, e o estado interno acaba colado no elemento errado.
+Onde o estado deve morar?;No ancestral comum mais próximo de quem realmente o usa. Subir mais que isso re-renderiza meia aplicação sem motivo.
+Quando um valor deve ser estado?;Quando não dá para derivá-lo de props ou de outro estado. Valor derivado promovido a estado é a origem clássica da tela dessincronizada.
+Por que atualizar estado com função em vez de valor direto?;Porque a função recebe o valor mais recente. Usar a variável da closure erra quando há atualizações em sequência no mesmo ciclo.
+Mudar o estado de um filho re-renderiza o pai?;Não. O fluxo é de cima para baixo: re-renderiza o próprio componente e a subárvore abaixo dele.
+Re-render significa DOM atualizado?;Não. O render produz a árvore nova, e só o commit toca o DOM, apenas onde houve diferença.
+Envolver o componente em memo elimina re-renderizações?;Não. memo só corta re-render vindo de props iguais — estado próprio e contexto continuam disparando, e props recriadas a cada render anulam a comparação.
