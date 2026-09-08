@@ -62,9 +62,9 @@ meio ou ⌘/Ctrl-clique se quiser manter o catálogo aberto.
 
 | Assunto | | Decks |
 | --- | --- | ---: |
-| [**System Design**](./subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 2 |
+| [**System Design**](./subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 5 |
 
-2 deck(s) em 1 assunto(s). Abra um assunto para ver os decks dele.
+5 deck(s) em 1 assunto(s). Abra um assunto para ver os decks dele.
 <!-- catalogue:end -->
 
 ## Como o conteúdo chega ao Stoa

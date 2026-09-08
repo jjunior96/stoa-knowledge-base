@@ -61,9 +61,9 @@ want to keep the catalogue open.
 
 | Subject | | Decks |
 | --- | --- | ---: |
-| [**System Design**](./subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 2 |
+| [**System Design**](./subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 5 |
 
-2 deck(s) across 1 subject(s). Open a subject to see its decks.
+5 deck(s) across 1 subject(s). Open a subject to see its decks.
 <!-- catalogue:end -->
 
 ## How content reaches Stoa

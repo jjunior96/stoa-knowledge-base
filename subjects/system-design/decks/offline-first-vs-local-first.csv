@@ -1,0 +1,16 @@
+pergunta;resposta
+O que caracteriza offline-first?;O app funciona sem rede lendo e escrevendo local, mas o servidor continua sendo a fonte da verdade.
+O que caracteriza local-first?;O dispositivo do usuário é a fonte primária da verdade. O servidor existe para os dispositivos convergirem entre si.
+Qual é a diferença essencial entre os dois?;Onde mora a autoridade do dado. Offline-first busca resiliência com o servidor no comando; local-first busca posse do dado pelo usuário.
+No offline-first, quando uma escrita é definitiva?;Só quando o servidor a aceita, após a reconexão. Até lá é pendente e pode ser rejeitada.
+No local-first, qual é o papel do servidor?;Relay e backup: distribui mudanças entre dispositivos, sem arbitrar quem está certo.
+Guardar dados no armazenamento local já é local-first?;Não, isso é cache. Local-first exige que o dado local valha por si mesmo se o servidor sumir.
+Por que conflito é inevitável nos dois modelos?;Porque dois dispositivos podem editar o mesmo dado offline sem enxergar um ao outro, e ambos consideram sua versão válida.
+O que é Last Write Wins?;A escrita com timestamp maior vence. É barato de implementar e descarta a outra edição sem avisar ninguém.
+Qual o problema do LWW na prática?;Depende de relógios que divergem entre dispositivos, e a perda é invisível: ninguém sabe o que foi descartado.
+O que é um CRDT?;Estrutura cujo merge converge sozinho em qualquer ordem, sem servidor arbitrando. O preço é metadado e memória extra.
+Por que um app bancário pede offline-first e não local-first?;Saldo exige autoridade central. Nenhum débito pode valer só porque o dispositivo do cliente afirmou que vale.
+Onde local-first ganha?;Onde o dado é do usuário e a colaboração é pequena — notas, editores, tarefas. Latência zero e uso sem conta.
+Como tratar uma escrita offline que o servidor rejeita?;Reverter e avisar. UI otimista precisa de caminho de volta, senão o usuário confia num dado que nunca existiu.
+Por que um carrinho de e-commerce não deve ser local-first?;Preço e estoque pertencem ao servidor. Só ele sabe se o item ainda existe no instante da compra.
+O que muda no backend ao adotar sincronização offline-first?;Escrita vira evento com id de idempotência e versão, não update direto: a mesma escrita pode chegar duas vezes ou fora de ordem.

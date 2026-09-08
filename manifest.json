@@ -4,7 +4,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 2
+      "deckCount": 5
     }
   },
   "decks": {
@@ -15,12 +15,33 @@
       "slug": "cap-theorem",
       "cardCount": 20
     },
+    "subjects/system-design/decks/event-loop-e-ssr.csv": {
+      "title": "Event Loop e SSR",
+      "description": "Thread única, I/O-bound versus CPU-bound e o bloqueio que derruba um servidor Node",
+      "subject": "system-design",
+      "slug": "event-loop-e-ssr",
+      "cardCount": 15
+    },
     "subjects/system-design/decks/idempotencia.csv": {
       "title": "Idempotência",
       "description": "Por que retentativa segura é um requisito de projeto, não um detalhe de implementação",
       "subject": "system-design",
       "slug": "idempotencia",
       "cardCount": 12
+    },
+    "subjects/system-design/decks/localidade-e-hierarquia-de-memoria.csv": {
+      "title": "Localidade e Hierarquia de Memória",
+      "description": "Localidade temporal e espacial, cache lines e por que toda decisão arquitetural é sobre a distância do dado",
+      "subject": "system-design",
+      "slug": "localidade-e-hierarquia-de-memoria",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/offline-first-vs-local-first.csv": {
+      "title": "Offline-First vs Local-First",
+      "description": "Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe",
+      "subject": "system-design",
+      "slug": "offline-first-vs-local-first",
+      "cardCount": 15
     }
   }
 }
