@@ -1,0 +1,16 @@
+pergunta;resposta
+Por que o Node é chamado de single-threaded?;Seu JavaScript roda numa thread só — uma tarefa por vez. O I/O em volta é que acontece fora dela.
+O que o event loop faz?;Delega I/O ao sistema operacional e vai retirando da fila os callbacks já prontos para rodar na thread principal.
+Qual a diferença entre tarefa I/O-bound e CPU-bound?;I/O-bound espera algo externo e pode ser delegada. CPU-bound calcula, e calcular só acontece ocupando a thread.
+Por que o Node aguenta milhares de conexões com uma thread?;Porque quase todo o tempo de uma requisição é espera, e espera não ocupa a thread.
+Por que uma tarefa CPU-bound trava o servidor inteiro?;Não há a quem delegar. Enquanto ela roda, nenhum outro callback é retirado da fila, nem o de quem já estava conectado.
+Por que SSR é CPU-bound?;Renderizar componentes é montar string em JavaScript síncrono. Não é espera, é cálculo na thread principal.
+Por que o usuário vê tela em branco quando o servidor trava?;O HTML só sai depois da render. Quem chegou durante o bloqueio espera sem receber byte nenhum, até o timeout.
+async/await resolve um trecho CPU-bound?;Não. async só devolve a thread quando há espera real; um laço pesado dentro de função async bloqueia igual.
+O que é event loop lag e por que monitorar?;É o atraso entre agendar um callback e executá-lo. É o sintoma mais direto de que a thread está bloqueada.
+Como dividir a tarefa em chunks ajuda?;Entre os pedaços a thread volta ao event loop, então outras requisições avançam. O tempo total não cai — muitas vezes sobe.
+Quando usar Worker Threads?;Quando o cálculo é pesado e não dá para fatiar sem estragar a resposta. Ele sai da thread principal e roda de fato em paralelo.
+Quando usar fila em vez de worker?;Quando o trabalho não precisa caber dentro da requisição. Responde 202, processa fora, e o pico vira backlog em vez de timeout.
+Por que cache é a primeira defesa do SSR?;A render mais rápida é a que não acontece. Página igual para muita gente não deveria ser montada a cada request.
+Adicionar réplicas resolve o bloqueio do event loop?;Só dilui. Cada instância continua travando por inteiro, e o custo de CPU por requisição não muda.
+Como dimensionar um serviço SSR?;Pelo tempo de CPU por render, não por número de conexões: throughput ≈ núcleos ÷ tempo de render. Depois corta com cache e streaming.

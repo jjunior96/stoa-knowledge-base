@@ -9,6 +9,18 @@
     "idempotencia": {
       "title": "Idempotência",
       "description": "Por que retentativa segura é um requisito de projeto, não um detalhe de implementação"
+    },
+    "localidade-e-hierarquia-de-memoria": {
+      "title": "Localidade e Hierarquia de Memória",
+      "description": "Localidade temporal e espacial, cache lines e por que toda decisão arquitetural é sobre a distância do dado"
+    },
+    "event-loop-e-ssr": {
+      "title": "Event Loop e SSR",
+      "description": "Thread única, I/O-bound versus CPU-bound e o bloqueio que derruba um servidor Node"
+    },
+    "offline-first-vs-local-first": {
+      "title": "Offline-First vs Local-First",
+      "description": "Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe"
     }
   }
 }

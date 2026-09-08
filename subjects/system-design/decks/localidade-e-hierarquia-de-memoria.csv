@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é localidade temporal?;Dado acessado agora tende a ser acessado de novo em breve. É a premissa que faz cache existir.
+O que é localidade espacial?;Dado vizinho na memória tende a ser acessado junto. Por isso a CPU busca uma linha inteira, nunca um byte só.
+Por que a CPU traz uma cache line inteira em vez do byte pedido?;O custo é dominado pela ida à memória, não pelo tamanho. Trazer os vizinhos é quase de graça e a localidade espacial paga.
+Qual é a ordem da hierarquia de memória?;Registradores, L1, L2, L3, RAM, disco. Cada nível é maior e mais barato por byte que o anterior, e ordens de grandeza mais lento.
+Por que existe hierarquia em vez de uma memória só?;Memória rápida é cara e pequena. A hierarquia dá a ilusão de uma memória grande na velocidade da pequena, financiada pela localidade.
+O que é cache hit e cache miss?;Hit: o nível tinha o dado. Miss: é preciso descer para o próximo nível e pagar a latência dele.
+Por que percorrer um array é mais rápido que percorrer uma lista ligada do mesmo tamanho?;O array é contíguo, então cada cache line traz vários elementos. A lista pula por endereços espalhados e paga um miss por nó.
+Por que percorrer uma matriz por coluna é mais lento que por linha?;Em row-major a linha é contígua. Ir por coluna avança um stride a cada passo e descarta quase toda a cache line trazida.
+Onde a localidade temporal aparece numa aplicação web?;Em toda camada de cache: memoization no processo, Redis na frente do banco, CDN na frente da origem.
+Struct of arrays ou array of structs?;Se o loop toca um campo só, struct of arrays: a cache line vem cheia daquele campo. Se toca o objeto inteiro, array of structs.
+Por que uma indireção a mais pode custar mais que uma conta a mais?;Aritmética custa ciclos; um miss em RAM custa centenas deles. Trocar ponteiro por cálculo costuma ganhar.
+O que é false sharing?;Duas threads escrevem em variáveis distintas que caem na mesma cache line, e cada escrita invalida a linha da outra.
+Como a hierarquia de memória se estende a sistemas distribuídos?;Ela continua: memória do processo, Redis na mesma rede, banco, outra região. Mesma regra — quanto mais longe, mais lento e mais barato por byte.
+Por que dizer que decisão arquitetural é decisão sobre distância do dado?;Latência é função da distância que o dado percorre. Escolher estrutura, cache ou região é sempre escolher onde ele estará quando for pedido.
+Cache resolve um acesso sem localidade?;Não. Sem reuso e sem vizinhança, o cache vira uma camada que erra sempre e só adiciona latência.
