@@ -1,0 +1,10 @@
+{
+  "title": "Engineering Practices",
+  "description": "How a team works on the same codebase without stepping on each other — version control, review and delivery",
+  "decks": {
+    "git-best-practices": {
+      "title": "Boas Práticas com Git",
+      "description": "Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico"
+    }
+  }
+}

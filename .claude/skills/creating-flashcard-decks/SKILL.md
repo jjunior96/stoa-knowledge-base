@@ -30,7 +30,27 @@ subjects/<subject-slug>/
 
 `subject.json` needs `title`, `description` and a `decks` block.
 
-## 2. Write the cards
+## 2. Name the file in English
+
+**The deck filename is always in English, in kebab-case, `.csv`** — regardless
+of the language of the source material or of the cards themselves. The cards are
+written in Brazilian Portuguese; the filename is not.
+
+| Topic | File |
+| --- | --- |
+| Teorema CAP | `cap-theorem.csv` |
+| Boas práticas com Git | `git-best-practices.csv` |
+| Arquitetura de software | `software-architecture.csv` |
+| Microfrontend | `microfrontends.csv` |
+
+Same rule for the subject folder slug (`system-design/`, not
+`design-de-sistemas/`). The `title` and `description` in `subject.json` stay in
+Portuguese — only the slug on disk is translated.
+
+Keep the name short and descriptive of the topic, not of the source: name it
+`react-hooks.csv`, never `video-fulano-react.csv` or `aula-3.csv`.
+
+## 3. Write the cards
 
 **Format — not negotiable:**
 
@@ -69,7 +89,7 @@ decks, not one deck of 25.
 that already exists. Overlap between decks is fine when the angle differs; a
 literal duplicate is not.
 
-## 3. Register and rebuild
+## 4. Register and rebuild
 
 1. Add the deck to the `decks` block of the subject's `subject.json`, with a
    `title` (real capitalization, acronyms uppercase) and a `description` (one
@@ -97,4 +117,6 @@ literal duplicate is not.
 - A comma-separated CSV, which publishes half an answer and raises no error.
 - A new subject created without asking, or a deck dropped into `system-design`
   because that was the folder that already existed.
+- A filename in Portuguese (`boas-praticas-git.csv`) or named after the source
+  instead of the topic.
 - `manifest.json` edited by hand.

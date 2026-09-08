@@ -1,0 +1,16 @@
+pergunta;resposta
+O que caracteriza um bom commit?;Uma mudança coesa que deixa o repositório funcionando. Se a mensagem precisa de um "e", provavelmente são dois commits.
+O que é Conventional Commits?;Convenção que prefixa a mensagem com tipo e escopo, como feat ou fix. Deixa o histórico legível para humano e processável por script.
+Para que serve o corpo da mensagem de commit?;Para o porquê. O diff já mostra o que mudou, e o que se perde com o tempo é a razão.
+Qual a diferença entre merge e rebase?;Merge preserva o histórico como aconteceu e cria um commit de junção. Rebase reescreve seus commits sobre a base atual e deixa a linha reta.
+Por que não fazer rebase de uma branch compartilhada?;Porque rebase reescreve os hashes. Quem já baixou a branch fica com um histórico divergente do seu.
+O que é trunk-based development?;Todo mundo integra na main por branches curtas, de horas a poucos dias. Reduz conflito porque reduz o tempo de divergência.
+Qual a diferença entre git revert e git reset?;Revert desfaz criando um commit novo e é seguro em branch pública. Reset move o histórico e só serve enquanto a mudança é local.
+Para que serve o git stash?;Guardar trabalho não commitado para trocar de contexto sem sujar o histórico. Não é lugar de armazenamento: stash esquecido é trabalho perdido.
+Qual o tamanho ideal de um pull request?;O menor que entregue algo revisável. A qualidade da revisão despenca depois de algumas centenas de linhas.
+O que fazer antes de abrir um pull request?;Atualizar com a main, rodar os testes e reler o próprio diff. Metade do que o revisor apontaria você encontra sozinho.
+Como resolver um conflito de merge com segurança?;Entendendo as duas intenções antes de escolher. Aceitar "a minha versão" por reflexo é como nasce a maioria dos bugs de merge.
+O que nunca deve entrar em um commit?;Segredo, credencial e arquivo gerado. Uma vez no histórico, remover exige reescrever tudo e rotacionar a chave assim mesmo.
+Commitar direto na main é sempre errado?;Não, depende do tamanho do time e das proteções existentes. O que não pode é entregar sem revisão nem CI num repositório compartilhado.
+Squash no merge: quando vale?;Quando os commits da branch são ruído de trabalho em progresso. Se cada um é uma etapa lógica revisável, o squash apaga informação.
+Force push é sempre proibido?;Não. Em branch pessoal, com force-with-lease, é rotina — em branch compartilhada, apaga trabalho alheio sem aviso.

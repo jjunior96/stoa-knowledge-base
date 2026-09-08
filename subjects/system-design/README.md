@@ -4,14 +4,16 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-5 decks · [All subjects](../../README.md)
+7 decks · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
+| **Arquitetura de Software**<br/>O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/software-architecture.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **CAP Theorem**<br/>Trade-offs, linearizability e PACELC em sistemas distribuídos | 20 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/cap-theorem.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Event Loop e SSR**<br/>Thread única, I/O-bound versus CPU-bound e o bloqueio que derruba um servidor Node | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/event-loop-e-ssr.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Idempotência**<br/>Por que retentativa segura é um requisito de projeto, não um detalhe de implementação | 12 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/idempotencia.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Localidade e Hierarquia de Memória**<br/>Localidade temporal e espacial, cache lines e por que toda decisão arquitetural é sobre a distância do dado | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/localidade-e-hierarquia-de-memoria.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **Microfrontends**<br/>Independência de deploy, composição em runtime, Module Federation e o custo operacional que vem junto | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/microfrontends.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Offline-First vs Local-First**<br/>Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/offline-first-vs-local-first.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
 A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.

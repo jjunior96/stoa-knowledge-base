@@ -1,0 +1,7 @@
+{
+  "decks": [
+    "subjects/system-design/decks/cap-theorem.csv",
+    "subjects/frontend/decks/react-virtual-dom.csv",
+    "subjects/engineering-practices/decks/git-best-practices.csv"
+  ]
+}
