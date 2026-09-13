@@ -1,0 +1,10 @@
+{
+  "title": "Design UX/UI",
+  "description": "Os princípios por trás de uma interface clara, acessível e fácil de usar",
+  "decks": {
+    "ux-ui-fundamentals": {
+      "title": "Fundamentos de UX/UI",
+      "description": "Hierarquia visual, leis de Hick e Fitts, acessibilidade, feedback e por que consistência vence a solução isolada"
+    }
+  }
+}

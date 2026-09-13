@@ -1,0 +1,10 @@
+{
+  "title": "Inglês",
+  "description": "Inglês para iniciantes com frases do dia a dia — completar a lacuna e fixar vocabulário e gramática básica",
+  "decks": {
+    "everyday-sentences": {
+      "title": "Frases do Dia a Dia",
+      "description": "Verbos de rotina, to be e o auxiliar does em frases curtas para completar, com tradução"
+    }
+  }
+}
