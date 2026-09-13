@@ -1,0 +1,16 @@
+pergunta;resposta
+Qual a diferença entre UX e UI?;UX é a experiência inteira de usar o produto, da necessidade à tarefa concluída, e UI é a camada visual e interativa que o usuário toca. Uma UI bonita não salva um fluxo que não resolve o problema.
+O que é hierarquia visual?;É a ordem em que o olho lê a tela, definida por tamanho, peso, cor, contraste e posição. Quando tudo tem o mesmo destaque, nada tem.
+O que é affordance?;É a pista que um elemento dá sobre como usá-lo, como um botão que parece clicável. Sem ela, o usuário precisa adivinhar onde interagir.
+O que diz a Lei de Hick?;O tempo para decidir cresce com o número de opções apresentadas. Menos escolhas visíveis tornam a decisão mais rápida.
+O que diz a Lei de Fitts?;O tempo para atingir um alvo depende da distância até ele e do seu tamanho. Ações frequentes merecem alvos grandes e próximos.
+O que é um design system?;É o conjunto compartilhado de componentes, tokens e regras de uso de um produto. Garante consistência e evita que cada tela reinvente o botão.
+Por que usar uma escala fixa de espaçamento, como múltiplos de 8?;Espaçamentos previsíveis criam ritmo visual e eliminam decisões arbitrárias em cada tela. Também tornam o handoff entre design e código direto.
+Qual o contraste mínimo de texto exigido pela WCAG AA?;4.5:1 para texto normal e 3:1 para texto grande. Abaixo disso, parte dos usuários não consegue ler.
+Por que não comunicar estado só com cor?;Pessoas com daltonismo não percebem a diferença, e um erro sinalizado só em vermelho passa despercebido. A cor deve vir acompanhada de ícone, texto ou forma.
+Qual o tamanho mínimo recomendado para um alvo de toque?;Cerca de 44pt no iOS e 48dp no Android. Alvos menores geram toques errados, principalmente com uma mão só.
+Por que todo elemento interativo precisa de foco visível?;Quem navega pelo teclado depende dele para saber onde está. Remover o outline sem substituto torna a interface inutilizável para essas pessoas.
+O que o usuário deve ver logo após acionar uma ação demorada?;Um sinal imediato de que o clique foi recebido, como o botão em estado de carregando. Sem ele, o usuário clica de novo ou acha que travou.
+Testar a usabilidade com apenas cinco usuários é suficiente?;Para revelar os problemas mais frequentes, sim, cinco usuários por rodada já bastam. O ganho vem de repetir rodadas pequenas após cada correção, não de um teste grande.
+Perguntar ao usuário o que ele prefere é a melhor forma de validar um design?;Não, porque o que as pessoas dizem que fazem diverge do que fazem. Observar o comportamento em um teste vale mais que colher opinião.
+Vale quebrar um padrão do produto porque uma tela ficaria melhor com outra solução?;Quase nunca, porque cada exceção obriga o usuário a reaprender e quebra a previsibilidade. Se a solução é melhor, ela deve mudar o padrão no design system inteiro.

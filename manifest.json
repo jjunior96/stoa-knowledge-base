@@ -6,6 +6,11 @@
       "description": "How a team works on the same codebase without stepping on each other — version control, review and delivery",
       "deckCount": 1
     },
+    "english": {
+      "title": "Inglês",
+      "description": "Inglês para iniciantes com frases do dia a dia — completar a lacuna e fixar vocabulário e gramática básica",
+      "deckCount": 1
+    },
     "frontend": {
       "title": "Frontend",
       "description": "React, browser and interface engineering — the concepts behind the code you write every day",
@@ -15,6 +20,11 @@
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
       "deckCount": 7
+    },
+    "ux-ui-design": {
+      "title": "Design UX/UI",
+      "description": "Os princípios por trás de uma interface clara, acessível e fácil de usar",
+      "deckCount": 1
     }
   },
   "decks": {
@@ -23,6 +33,13 @@
       "description": "Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico",
       "subject": "engineering-practices",
       "slug": "git-best-practices",
+      "cardCount": 15
+    },
+    "subjects/english/decks/everyday-sentences.csv": {
+      "title": "Frases do Dia a Dia",
+      "description": "Verbos de rotina, to be e o auxiliar does em frases curtas para completar, com tradução",
+      "subject": "english",
+      "slug": "everyday-sentences",
       "cardCount": 15
     },
     "subjects/frontend/decks/react-core-concepts.csv": {
@@ -86,6 +103,13 @@
       "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa",
       "subject": "system-design",
       "slug": "software-architecture",
+      "cardCount": 15
+    },
+    "subjects/ux-ui-design/decks/ux-ui-fundamentals.csv": {
+      "title": "Fundamentos de UX/UI",
+      "description": "Hierarquia visual, leis de Hick e Fitts, acessibilidade, feedback e por que consistência vence a solução isolada",
+      "subject": "ux-ui-design",
+      "slug": "ux-ui-fundamentals",
       "cardCount": 15
     }
   }
