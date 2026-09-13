@@ -1,20 +1,21 @@
-O que o teorema CAP afirma?;Durante uma partição de rede, um sistema distribuído preserva consistência ou disponibilidade, nunca as duas.
-Por que "escolher dois de três" é uma leitura errada do CAP?;Partição não está no menu: a rede particiona com ou sem sua autorização. A escolha existe só durante a partição.
-O C do CAP é o mesmo C do ACID?;Não. No CAP é linearizabilidade. No ACID é preservar os invariantes declarados da transação.
-O que é linearizabilidade?;O sistema se comporta como se houvesse uma cópia só: toda escrita confirmada é visível para qualquer leitura posterior.
-O que "disponibilidade" significa no CAP?;Toda requisição recebida por um nó não-falho resulta em resposta sem erro. Qualquer nó, não algum nó.
-Um sistema com quatro noves de uptime é AP?;Não necessariamente. Uptime operacional e disponibilidade do CAP são réguas diferentes.
-O que é PACELC?;Se há Partição, o trade-off é entre Availability e Consistency. Else, é entre Latency e Consistency.
-Por que a cláusula ELSE do PACELC importa mais no dia a dia?;Partição é rara. A segunda letra descreve os 99,9% do tempo, em que você paga latência por consistência.
-Quórum garante linearizabilidade?;Não. Quórum define quantos nós respondem, nunca quem vence o conflito nem se o dado convergiu.
-Como se obtém uma operação linearizável no Cassandra?;Com lightweight transactions, que são Paxos. Nível de consistência não basta.
-Quantos nós são necessários para tolerar duas falhas em um cluster de consenso?;Cinco. Quórum é ⌊n/2⌋+1, então a tolerância só sobe ao cruzar o próximo número ímpar.
-Por que uma leitura linearizável é mais lenta que uma leitura local?;O nó precisa confirmar com o quórum que ainda é autoridade sobre o dado. Isso custa um round trip por leitura.
-O líder também paga o custo da leitura forte?;Sim. Ele confirma com o quórum que ainda é líder antes de responder, via ReadIndex.
-O que acontece com um nó no lado minoritário de uma partição?;Escrita e leitura forte falham só depois de esgotar o timeout. A leitura local responde na hora, com o valor de antes.
-Um mesmo banco pode se comportar como CP e como AP?;Sim, por operação. No mesmo nó e no mesmo instante, uma flag da chamada muda o comportamento.
-Last-write-wins resolve conflito de escrita concorrente?;Não: descarta silenciosamente todas as escritas do lado perdedor. Para preservar as duas, use CRDT.
-Qual a diferença entre leitura serializável e linearizável no etcd?;A serializável lê o estado local do nó, rápida e possivelmente velha. A linearizável passa pelo consenso Raft.
-O que o teorema CAP não modela?;A recuperação depois da partição e a falha bizantina, em que o nó mente ou tem visão parcial.
-Onde o tempo de um incidente de partição é realmente gasto?;Na reconciliação, não no corte. No incidente do GitHub foram 43 segundos de partição e 24 horas de degradação.
-Como decidir a consistência de um serviço novo?;Por operação, não por sistema. Saldo antes de debitar precisa de linearizabilidade, contador de visualização não.
+pergunta;resposta
+O que o teorema CAP afirma?;Quando ocorre uma partição de rede, um sistema distribuído precisa abrir mão de consistência ou de disponibilidade. Não é possível garantir as duas enquanto a partição durar.
+Por que "escolher dois de três" é uma leitura errada do CAP?;Porque tolerar partição não é opcional: em uma rede real, partições acontecem de qualquer jeito. A escolha entre consistência e disponibilidade só existe enquanto a partição está acontecendo.
+O C do CAP é o mesmo C do ACID?;Não. No CAP, C significa linearizabilidade entre réplicas; no ACID, significa que a transação leva o banco de um estado válido a outro, respeitando as regras de integridade.
+O que é linearizabilidade?;O sistema se comporta como se existisse uma única cópia do dado. Assim que uma escrita é confirmada, toda leitura iniciada depois dela enxerga esse valor ou um mais novo.
+O que "disponibilidade" significa no CAP?;Toda requisição recebida por um nó que não falhou precisa receber uma resposta sem erro. Não basta que algum nó do cluster responda: vale para qualquer nó ativo, inclusive o que ficou isolado pela partição.
+Um sistema com quatro noves de uptime é AP?;Não necessariamente. Uptime mede quanto tempo o serviço ficou acessível na prática, enquanto a disponibilidade do CAP exige que todo nó ativo responda mesmo durante uma partição; um sistema CP pode ter 99,99% de uptime.
+O que é PACELC?;Uma extensão do CAP: se há Partição, o trade-off é entre disponibilidade (A) e consistência (C). Senão (Else), com a rede normal, o trade-off é entre latência (L) e consistência (C).
+Por que a cláusula ELSE do PACELC importa mais no dia a dia?;Porque partições são raras e, na maior parte do tempo, o sistema opera com a rede saudável. Nesse cenário, cada ganho de consistência exige coordenar réplicas, e isso se paga em latência em toda requisição.
+Quórum garante linearizabilidade?;Não. R + W > N só garante que leitura e escrita se sobrepõem em pelo menos uma réplica; sem consenso, escritas concorrentes, escritas que falharam pela metade e sloppy quorum ainda produzem leituras inconsistentes.
+Como se obtém uma operação linearizável no Cassandra?;Com lightweight transactions, que executam Paxos entre as réplicas antes de aplicar a escrita. Apenas subir o nível de consistência para QUORUM ou ALL não garante linearizabilidade.
+Quantos nós são necessários para tolerar duas falhas em um cluster de consenso?;Cinco. O cluster só opera com maioria (⌊n/2⌋+1), então tolerar f falhas exige 2f+1 nós; com quatro nós a maioria é três, e a tolerância continua sendo de uma falha só.
+Por que uma leitura linearizável é mais lenta que uma leitura local?;Porque o nó não pode confiar só na própria cópia, que pode estar desatualizada. Antes de responder, ele confirma com a maioria do cluster que o dado é o mais recente, o que custa ao menos um round trip de rede por leitura.
+O líder também paga o custo da leitura forte?;Sim. Uma partição pode ter eleito outro líder sem que ele saiba; por isso, antes de responder, ele confirma com a maioria que ainda é o líder (no Raft, via ReadIndex).
+O que acontece com um nó no lado minoritário de uma partição?;Escritas e leituras fortes não alcançam maioria e falham quando o timeout estoura. Leituras locais continuam respondendo na hora, mas devolvem o valor de antes da partição.
+Um mesmo banco pode se comportar como CP e como AP?;Sim, porque a escolha é feita por operação, não pelo banco inteiro. No MongoDB, por exemplo, o read concern de cada consulta decide entre leitura linearizável (CP) e leitura local (AP) no mesmo nó.
+Last-write-wins resolve conflito de escrita concorrente?;Não. Ele só elege um vencedor, geralmente pelo maior timestamp, e descarta sem aviso as demais escritas concorrentes; para preservar todas, é preciso mesclá-las, por exemplo com CRDTs.
+Qual a diferença entre leitura serializável e linearizável no etcd?;A serializável responde com o estado local do nó: é rápida, mas pode estar desatualizada. A linearizável passa pelo consenso Raft para garantir o valor mais recente, ao custo de latência.
+O que o teorema CAP não modela?;Não modela a recuperação depois da partição, quando réplicas divergentes precisam ser reconciliadas, nem falhas bizantinas, em que um nó responde errado ou mente. Também ignora a latência, lacuna que o PACELC cobre.
+Onde o tempo de um incidente de partição é realmente gasto?;Na reconciliação depois que a rede volta, não no corte em si. No incidente do GitHub em 2018, a partição durou 43 segundos, mas acertar os dados divergentes entre data centers deixou o serviço degradado por 24 horas.
+Como decidir a consistência de um serviço novo?;Operação por operação, perguntando quanto custa ler um dado desatualizado. Conferir o saldo antes de um débito exige linearizabilidade; um contador de visualizações tolera consistência eventual.
