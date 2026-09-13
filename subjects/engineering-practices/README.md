@@ -4,7 +4,7 @@
 
 How a team works on the same codebase without stepping on each other — version control, review and delivery
 
-1 deck · [All subjects](../../README.md)
+1 deck · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=engineering-practices)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |

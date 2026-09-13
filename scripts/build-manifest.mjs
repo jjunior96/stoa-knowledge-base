@@ -284,6 +284,8 @@ function buildManifest() {
  * of subjects.
  */
 const IMPORT_BASE = 'https://stoaflow.com.br/import?path=';
+/** Stoa's own catalogue page, which lists this manifest and narrows by subject slug. */
+const CATALOG_URL = 'https://stoaflow.com.br/catalog';
 const START = '<!-- catalogue:start -->';
 const END = '<!-- catalogue:end -->';
 const FEATURED_START = '<!-- featured:start -->';
@@ -295,6 +297,8 @@ const GENERATED_NOTE =
 const escapeCell = (value) => value.replace(/\|/g, '\\|').replace(/\n/g, ' ');
 
 const importLink = (path) => `${IMPORT_BASE}${path}`;
+
+const catalogLink = (subjectSlug) => `${CATALOG_URL}?subject=${encodeURIComponent(subjectSlug)}`;
 
 const decksOfSubject = (manifest, subjectSlug) =>
   Object.entries(manifest.decks)
@@ -331,7 +335,7 @@ const subjectReadme = (manifest, subjectSlug, subject, labels) => {
     `# ${escapeCell(subject.title)}`,
     '',
     ...(subject.description ? [escapeCell(subject.description), ''] : []),
-    `${subject.deckCount} ${subject.deckCount === 1 ? labels.deck : labels.decks} · [${labels.back}](../../README.md)`,
+    `${subject.deckCount} ${subject.deckCount === 1 ? labels.deck : labels.decks} · **[${labels.openInCatalog}](${catalogLink(subjectSlug)})** · [${labels.back}](../../README.md)`,
     '',
     `| ${labels.colDeck} | ${labels.colCards} | |`,
     '| --- | ---: | --- |',
@@ -348,7 +352,7 @@ const catalogueIndex = (manifest, labels, base) => {
     .map(([slug, subject]) => {
       const description = subject.description ? escapeCell(subject.description) : '';
       const link = `[**${escapeCell(subject.title)}**](${base}/subjects/${slug}/)`;
-      return `| ${link} | ${description} | ${subject.deckCount} |`;
+      return `| ${link} | ${description} | ${subject.deckCount} | [${labels.openShort}](${catalogLink(slug)}) |`;
     });
 
   const total = Object.keys(manifest.decks).length;
@@ -357,8 +361,8 @@ const catalogueIndex = (manifest, labels, base) => {
     START,
     GENERATED_NOTE,
     '',
-    `| ${labels.colSubject} | | ${labels.colDecks} |`,
-    '| --- | --- | ---: |',
+    `| ${labels.colSubject} | | ${labels.colDecks} | ${labels.colInStoa} |`,
+    '| --- | --- | ---: | --- |',
     ...rows,
     '',
     `${labels.total(total, rows.length)}`,
@@ -465,11 +469,14 @@ const LABELS = {
     colCards: 'Cards',
     colSubject: 'Subject',
     colDecks: 'Decks',
+    colInStoa: 'In Stoa',
+    openShort: 'Browse →',
+    openInCatalog: 'Browse this subject in Stoa →',
     footer: 'A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.\n\n> [!TIP]\n> 💡 `Middle-click` or `⌘/Ctrl-click` to open it in a new tab.',
     total: (decks, subjects) =>
-      `${decks} deck(s) across ${subjects} subject(s). Open a subject to see its decks.`,
+      `${decks} deck(s) across ${subjects} subject(s). Open a subject to see its decks, or **[browse them all in Stoa →](${CATALOG_URL})**`,
     featuredMore: (shown, total) =>
-      `${shown} of ${total} decks. **[Browse the full catalogue →](#the-catalogue)**`,
+      `${shown} of ${total} decks. **[See all ${total} in Stoa's catalogue →](${CATALOG_URL})** · [or by subject, below](#the-catalogue)`,
   },
   'pt-BR': {
     add: 'Adicionar ao Stoa',
@@ -480,11 +487,14 @@ const LABELS = {
     colCards: 'Cards',
     colSubject: 'Assunto',
     colDecks: 'Decks',
+    colInStoa: 'No Stoa',
+    openShort: 'Explorar →',
+    openInCatalog: 'Explorar este assunto no Stoa →',
     footer: 'Abrir um link mostra o deck antes de pedir qualquer coisa — a conta só é necessária para guardá-lo.',
     total: (decks, subjects) =>
-      `${decks} deck(s) em ${subjects} assunto(s). Abra um assunto para ver os decks dele.`,
+      `${decks} deck(s) em ${subjects} assunto(s). Abra um assunto para ver os decks dele, ou **[explore todos no Stoa →](${CATALOG_URL})**`,
     featuredMore: (shown, total) =>
-      `${shown} de ${total} decks. **[Ver o catálogo completo →](#o-catálogo)**`,
+      `${shown} de ${total} decks. **[Ver todos os ${total} no catálogo do Stoa →](${CATALOG_URL})** · [ou por assunto, abaixo](#o-catálogo)`,
   },
 };
 

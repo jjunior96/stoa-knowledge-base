@@ -4,7 +4,7 @@
 
 Inglês para iniciantes com frases do dia a dia — completar a lacuna e fixar vocabulário e gramática básica
 
-1 deck · [All subjects](../../README.md)
+1 deck · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=english)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
