@@ -4,7 +4,7 @@
 
 Os princípios por trás de uma interface clara, acessível e fácil de usar
 
-1 deck · [All subjects](../../README.md)
+1 deck · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=ux-ui-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |

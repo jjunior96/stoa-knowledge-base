@@ -4,7 +4,7 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-7 decks · [All subjects](../../README.md)
+7 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
