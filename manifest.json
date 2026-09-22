@@ -19,7 +19,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 7
+      "deckCount": 8
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -96,6 +96,13 @@
       "description": "Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe",
       "subject": "system-design",
       "slug": "offline-first-vs-local-first",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/sli-slo-sla.csv": {
+      "title": "SLI, SLO e SLA",
+      "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade",
+      "subject": "system-design",
+      "slug": "sli-slo-sla",
       "cardCount": 15
     },
     "subjects/system-design/decks/software-architecture.csv": {

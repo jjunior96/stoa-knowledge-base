@@ -29,6 +29,10 @@
     "software-architecture": {
       "title": "Arquitetura de Software",
       "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa"
+    },
+    "sli-slo-sla": {
+      "title": "SLI, SLO e SLA",
+      "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
     }
   }
 }
