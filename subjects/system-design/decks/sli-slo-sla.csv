@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é um SLI (Service Level Indicator)?;Uma métrica quantitativa que mede diretamente a experiência do usuário com o serviço, como latência ou taxa de erro. É a medição bruta, não a meta.
+O que é um SLO (Service Level Objective)?;A meta interna definida sobre um SLI, como "99,9% das requisições respondidas em menos de 300ms em 30 dias". Orienta decisões de engenharia.
+O que é um SLA (Service Level Agreement)?;Um contrato formal com o cliente que define consequências, geralmente financeiras, caso o SLO combinado não seja cumprido.
+Qual a relação entre SLI, SLO e SLA?;O SLI é a métrica medida, o SLO é a meta interna sobre essa métrica, e o SLA é o compromisso externo com penalidade caso o SLO não seja cumprido.
+Por que o SLA costuma ser mais frouxo que o SLO interno?;Para dar margem de segurança: se fossem iguais, qualquer variação normal já geraria penalidade contratual. O SLO interno funciona como alarme antecipado.
+O que é error budget?;A margem de falha permitida pelo SLO, o complemento da meta. Um SLO de 99,9% permite 0,1% de requisições ruins no período sem violar o objetivo.
+Como o error budget influencia a decisão de fazer deploy?;Se o budget do período já foi consumido, deploys de risco são pausados até ele se recompor; sobrando budget, a equipe pode acelerar releases.
+Quais métricas costumam virar SLIs de uma API?;Latência (p50/p99), taxa de erro e disponibilidade, às vezes throughput. A escolha depende do que o usuário realmente sente.
+Do lado do servidor ou do cliente medir disponibilidade é mais confiável?;Do lado do cliente, porque captura falhas de rede, DNS e CDN que nunca chegam ao servidor e que o monitoramento server-side não enxerga.
+Por que 100% de disponibilidade é uma meta ruim?;Custa exponencialmente mais a cada nove adicional e o usuário não percebe a diferença entre 99,99% e 100%, além de eliminar qualquer margem para inovar com risco.
+Por que cada "nove" extra de disponibilidade custa exponencialmente mais?;Porque eliminar a fração restante de falhas exige remover as causas mais raras e imprevisíveis, que pedem redundância, automação e operação cada vez mais caras.
+Um SLO medido em janela de 30 dias pode esconder o quê?;Uma indisponibilidade total de algumas horas, que diluída em 30 dias ainda cabe no orçamento de erro, mesmo sendo grave para quem foi afetado na hora.
+O que é multi-window, multi-burn-rate alerting?;Uma estratégia que combina janelas curtas e longas para detectar tanto queima rápida do error budget quanto degradação lenta e silenciosa, sem gerar alarme falso.
+Quem deveria decidir o valor numérico de um SLO, produto ou engenharia?;Produto define o que o usuário tolera e o custo de negócio de violar a meta, engenharia traduz isso em um número alcançável. Nenhum lado decide sozinho.
+Toda violação de SLA corresponde a um incidente de produção?;Não necessariamente: o SLA pode cobrir também tempo de resposta de suporte ou de terceiros, e violações desse tipo não implicam queda do serviço.

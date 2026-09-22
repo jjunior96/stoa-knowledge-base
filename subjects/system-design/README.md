@@ -4,7 +4,7 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-7 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
+8 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
@@ -15,6 +15,7 @@ Distributed systems, trade-offs and the vocabulary interviews assume you already
 | **Localidade e Hierarquia de Memória**<br/>Localidade temporal e espacial, cache lines e por que toda decisão arquitetural é sobre a distância do dado | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/localidade-e-hierarquia-de-memoria.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Microfrontends**<br/>Independência de deploy, composição em runtime, Module Federation e o custo operacional que vem junto | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/microfrontends.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Offline-First vs Local-First**<br/>Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/offline-first-vs-local-first.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **SLI, SLO e SLA**<br/>Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/sli-slo-sla.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
 A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.
 
