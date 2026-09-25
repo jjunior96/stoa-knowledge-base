@@ -34,7 +34,7 @@ qualquer coisa.
 | [**React: Virtual DOM e Reconciliação**](../../subjects/frontend/)<br/>A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve | 15 | <a href="https://stoaflow.com.br/import?path=subjects/frontend/decks/react-virtual-dom.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Adicionar ao Stoa" height="28" /></a> |
 | [**Boas Práticas com Git**](../../subjects/engineering-practices/)<br/>Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico | 15 | <a href="https://stoaflow.com.br/import?path=subjects/engineering-practices/decks/git-best-practices.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Adicionar ao Stoa" height="28" /></a> |
 
-3 de 13 decks. **[Ver todos os 13 no catálogo do Stoa →](https://stoaflow.com.br/catalog)** · [ou por assunto, abaixo](#o-catálogo)
+3 de 14 decks. **[Ver todos os 14 no catálogo do Stoa →](https://stoaflow.com.br/catalog)** · [ou por assunto, abaixo](#o-catálogo)
 <!-- featured:end -->
 
 ## O que é este repositório
@@ -101,13 +101,14 @@ meio ou ⌘/Ctrl-clique se quiser manter o catálogo aberto.
 
 | Assunto | | Decks | No Stoa |
 | --- | --- | ---: | --- |
+| [**Arquitetura de Software**](../../subjects/software-architecture/) | Princípios estruturais por trás do código: como dividir sistemas em módulos, onde a complexidade deve morar e como avaliar o design antes de escrevê-lo | 1 | [Explorar →](https://stoaflow.com.br/catalog?subject=software-architecture) |
 | [**Design UX/UI**](../../subjects/ux-ui-design/) | Os princípios por trás de uma interface clara, acessível e fácil de usar | 1 | [Explorar →](https://stoaflow.com.br/catalog?subject=ux-ui-design) |
 | [**Engineering Practices**](../../subjects/engineering-practices/) | How a team works on the same codebase without stepping on each other — version control, review and delivery | 1 | [Explorar →](https://stoaflow.com.br/catalog?subject=engineering-practices) |
 | [**Frontend**](../../subjects/frontend/) | React, browser and interface engineering — the concepts behind the code you write every day | 2 | [Explorar →](https://stoaflow.com.br/catalog?subject=frontend) |
 | [**Inglês**](../../subjects/english/) | Inglês para iniciantes com frases do dia a dia — completar a lacuna e fixar vocabulário e gramática básica | 1 | [Explorar →](https://stoaflow.com.br/catalog?subject=english) |
 | [**System Design**](../../subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 8 | [Explorar →](https://stoaflow.com.br/catalog?subject=system-design) |
 
-13 deck(s) em 5 assunto(s). Abra um assunto para ver os decks dele, ou **[explore todos no Stoa →](https://stoaflow.com.br/catalog)**
+14 deck(s) em 6 assunto(s). Abra um assunto para ver os decks dele, ou **[explore todos no Stoa →](https://stoaflow.com.br/catalog)**
 <!-- catalogue:end -->
 
 ## Como o conteúdo chega ao Stoa

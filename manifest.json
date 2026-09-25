@@ -16,6 +16,11 @@
       "description": "React, browser and interface engineering — the concepts behind the code you write every day",
       "deckCount": 2
     },
+    "software-architecture": {
+      "title": "Arquitetura de Software",
+      "description": "Princípios estruturais por trás do código: como dividir sistemas em módulos, onde a complexidade deve morar e como avaliar o design antes de escrevê-lo",
+      "deckCount": 1
+    },
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
@@ -54,6 +59,13 @@
       "description": "A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve",
       "subject": "frontend",
       "slug": "react-virtual-dom",
+      "cardCount": 15
+    },
+    "subjects/software-architecture/decks/deep-and-shallow-modules.csv": {
+      "title": "Módulos Profundos e Rasos",
+      "description": "A distinção de John Ousterhout, em A Philosophy of Software Design, entre módulos que escondem muita complexidade atrás de uma interface simples e módulos que só a repassam",
+      "subject": "software-architecture",
+      "slug": "deep-and-shallow-modules",
       "cardCount": 15
     },
     "subjects/system-design/decks/cap-theorem.csv": {

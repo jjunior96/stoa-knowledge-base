@@ -1,0 +1,10 @@
+{
+  "title": "Arquitetura de Software",
+  "description": "Princípios estruturais por trás do código: como dividir sistemas em módulos, onde a complexidade deve morar e como avaliar o design antes de escrevê-lo",
+  "decks": {
+    "deep-and-shallow-modules": {
+      "title": "Módulos Profundos e Rasos",
+      "description": "A distinção de John Ousterhout, em A Philosophy of Software Design, entre módulos que escondem muita complexidade atrás de uma interface simples e módulos que só a repassam"
+    }
+  }
+}
