@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é um módulo na visão de Ousterhout?;A combinação de uma interface, o que ele expõe, com uma implementação, como ele funciona por dentro.
+O que caracteriza um módulo profundo (deep module)?;Interface simples escondendo uma implementação rica em funcionalidade. É onde a relação entre benefício e custo da abstração é mais alta.
+O que caracteriza um módulo raso (shallow module)?;Interface tão complexa quanto a funcionalidade que entrega. Esconde pouco, então compensa pouco o custo de existir.
+Como Ousterhout define a interface de um módulo?;Tudo que quem usa o módulo precisa saber para usá-lo corretamente, não só as assinaturas dos métodos.
+Qual o exemplo clássico de módulo profundo citado no livro?;A interface de I/O de arquivos do Unix: open, read, write e close escondem um driver e um sistema de arquivos inteiros.
+O que é um pass-through method?;Um método que só repassa a chamada para outro sem acrescentar comportamento. É sinal de que o módulo é raso.
+Ao quebrar uma classe grande em várias menores, o que checar para não criar módulos rasos?;Se cada classe nova esconde complexidade própria, e não apenas distribui a mesma lógica em mais interfaces para aprender.
+Por que dividir uma função em muitos métodos pequenos pode piorar o design?;Cada método é uma interface a mais para o leitor decorar, e se nenhum deles esconde muita coisa o custo total sobe sem ganho.
+O que Ousterhout recomenda antes de fechar uma interface nova?;"Design it twice": esboçar pelo menos duas versões diferentes e comparar a profundidade antes de escolher.
+Por que uma interface mais genérica tende a ser mais profunda que uma bem específica?;Porque cobre mais casos de uso sem crescer proporcionalmente, então a mesma interface acaba escondendo mais implementação.
+O que é classitis?;O hábito de criar classes pequenas demais achando que isso é sempre bom design. Multiplica interfaces sem esconder complexidade proporcional.
+Ter muitas classes pequenas sempre deixa o código mais fácil de manter?;Não. Cada classe é uma interface extra para decorar, e classes pequenas demais tendem a ser rasas, com mais custo de interface do que complexidade escondida.
+Um módulo com interface grande pode ainda ser considerado profundo?;Só se a implementação escondida for proporcionalmente muito maior. Profundidade é a razão entre funcionalidade escondida e tamanho da interface, não o tamanho absoluto de nenhum dos dois.
+Decompor um sistema pela ordem das etapas de processamento tende a gerar módulos profundos ou rasos?;Rasos. A ordem de execução raramente esconde informação; costuma só espalhar a mesma lógica em vários lugares.
+Por que Ousterhout considera a profundidade mais importante que o tamanho do módulo?;Porque o custo de uma interface é pago toda vez que alguém a usa. Um módulo grande com interface simples paga esse custo uma vez só, e o resto é ganho.
