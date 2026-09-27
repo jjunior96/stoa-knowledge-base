@@ -1,0 +1,10 @@
+{
+  "title": "Engenharia de Software",
+  "description": "Princípios e práticas para construir software correto, testável e sustentável ao longo do tempo",
+  "decks": {
+    "software-engineering-fundamentals": {
+      "title": "Fundamentos de Engenharia de Software",
+      "description": "Ciclo de vida, requisitos, testes, integração contínua, refatoração e as decisões que aparecem em entrevistas técnicas"
+    }
+  }
+}

@@ -21,6 +21,11 @@
       "description": "Princípios estruturais por trás do código: como dividir sistemas em módulos, onde a complexidade deve morar e como avaliar o design antes de escrevê-lo",
       "deckCount": 1
     },
+    "software-engineering": {
+      "title": "Engenharia de Software",
+      "description": "Princípios e práticas para construir software correto, testável e sustentável ao longo do tempo",
+      "deckCount": 1
+    },
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
@@ -66,6 +71,13 @@
       "description": "A distinção de John Ousterhout, em A Philosophy of Software Design, entre módulos que escondem muita complexidade atrás de uma interface simples e módulos que só a repassam",
       "subject": "software-architecture",
       "slug": "deep-and-shallow-modules",
+      "cardCount": 15
+    },
+    "subjects/software-engineering/decks/software-engineering-fundamentals.csv": {
+      "title": "Fundamentos de Engenharia de Software",
+      "description": "Ciclo de vida, requisitos, testes, integração contínua, refatoração e as decisões que aparecem em entrevistas técnicas",
+      "subject": "software-engineering",
+      "slug": "software-engineering-fundamentals",
       "cardCount": 15
     },
     "subjects/system-design/decks/cap-theorem.csv": {
