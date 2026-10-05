@@ -1,6 +1,11 @@
 {
   "version": 1,
   "subjects": {
+    "artificial-intelligence": {
+      "title": "Inteligência Artificial",
+      "description": "Os conceitos de IA, machine learning e LLMs que todo desenvolvedor precisa dominar para construir e avaliar sistemas com IA",
+      "deckCount": 2
+    },
     "engineering-practices": {
       "title": "Engineering Practices",
       "description": "How a team works on the same codebase without stepping on each other — version control, review and delivery",
@@ -38,6 +43,20 @@
     }
   },
   "decks": {
+    "subjects/artificial-intelligence/decks/llms-for-developers.csv": {
+      "title": "LLMs para Desenvolvedores",
+      "description": "Tokens, contexto, RAG, embeddings, fine-tuning, agentes, prompt injection e avaliação de aplicações com LLMs",
+      "subject": "artificial-intelligence",
+      "slug": "llms-for-developers",
+      "cardCount": 15
+    },
+    "subjects/artificial-intelligence/decks/machine-learning-fundamentals.csv": {
+      "title": "Fundamentos de Machine Learning",
+      "description": "Tipos de aprendizado, overfitting, métricas, vazamento de dados, drift e viés: a base para entender qualquer modelo",
+      "subject": "artificial-intelligence",
+      "slug": "machine-learning-fundamentals",
+      "cardCount": 15
+    },
     "subjects/engineering-practices/decks/git-best-practices.csv": {
       "title": "Boas Práticas com Git",
       "description": "Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico",
