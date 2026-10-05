@@ -34,7 +34,7 @@ for anything.
 | [**React: Virtual DOM e Reconciliação**](./subjects/frontend/)<br/>A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve | 15 | <a href="https://stoaflow.com.br/import?path=subjects/frontend/decks/react-virtual-dom.csv"><img src="./.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | [**Boas Práticas com Git**](./subjects/engineering-practices/)<br/>Commit coeso, merge versus rebase, pull request revisável e o que nunca deve entrar no histórico | 15 | <a href="https://stoaflow.com.br/import?path=subjects/engineering-practices/decks/git-best-practices.csv"><img src="./.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
-3 of 15 decks. **[See all 15 in Stoa's catalogue →](https://stoaflow.com.br/catalog)** · [or by subject, below](#the-catalogue)
+3 of 17 decks. **[See all 17 in Stoa's catalogue →](https://stoaflow.com.br/catalog)** · [or by subject, below](#the-catalogue)
 <!-- featured:end -->
 
 ## What this repository is
@@ -107,9 +107,10 @@ want to keep the catalogue open.
 | [**Engineering Practices**](./subjects/engineering-practices/) | How a team works on the same codebase without stepping on each other — version control, review and delivery | 1 | [Browse →](https://stoaflow.com.br/catalog?subject=engineering-practices) |
 | [**Frontend**](./subjects/frontend/) | React, browser and interface engineering — the concepts behind the code you write every day | 2 | [Browse →](https://stoaflow.com.br/catalog?subject=frontend) |
 | [**Inglês**](./subjects/english/) | Inglês para iniciantes com frases do dia a dia — completar a lacuna e fixar vocabulário e gramática básica | 1 | [Browse →](https://stoaflow.com.br/catalog?subject=english) |
+| [**Inteligência Artificial**](./subjects/artificial-intelligence/) | Os conceitos de IA, machine learning e LLMs que todo desenvolvedor precisa dominar para construir e avaliar sistemas com IA | 2 | [Browse →](https://stoaflow.com.br/catalog?subject=artificial-intelligence) |
 | [**System Design**](./subjects/system-design/) | Distributed systems, trade-offs and the vocabulary interviews assume you already have | 8 | [Browse →](https://stoaflow.com.br/catalog?subject=system-design) |
 
-15 deck(s) across 7 subject(s). Open a subject to see its decks, or **[browse them all in Stoa →](https://stoaflow.com.br/catalog)**
+17 deck(s) across 8 subject(s). Open a subject to see its decks, or **[browse them all in Stoa →](https://stoaflow.com.br/catalog)**
 <!-- catalogue:end -->
 
 ## How content reaches Stoa
