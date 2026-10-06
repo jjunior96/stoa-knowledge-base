@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 8
+      "deckCount": 9
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -153,6 +153,13 @@
       "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa",
       "subject": "system-design",
       "slug": "software-architecture",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/system-design-interview-questions.csv": {
+      "title": "Perguntas de Entrevista de System Design",
+      "description": "As 15 perguntas mais comuns em entrevistas de system design e o padrão central de cada solução",
+      "subject": "system-design",
+      "slug": "system-design-interview-questions",
       "cardCount": 15
     },
     "subjects/ux-ui-design/decks/ux-ui-fundamentals.csv": {
