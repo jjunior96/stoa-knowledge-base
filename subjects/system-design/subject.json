@@ -30,6 +30,10 @@
       "title": "Arquitetura de Software",
       "description": "O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa"
     },
+    "system-design-interview-questions": {
+      "title": "Perguntas de Entrevista de System Design",
+      "description": "As 15 perguntas mais comuns em entrevistas de system design e o padrão central de cada solução"
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
