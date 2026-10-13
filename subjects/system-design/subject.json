@@ -38,6 +38,14 @@
       "title": "Trade-offs Comuns de System Design",
       "description": "Latência versus throughput, consistência, cache, replicação, fila e as escolhas do dia a dia que entrevistas cobram justificar"
     },
+    "blog-platform-foundations": {
+      "title": "Plataforma de Blog: Fundamentos",
+      "description": "Do MVP à distribuição pública: modelo, publicação, upload de mídia, CDN e cache em uma plataforma estilo Medium"
+    },
+    "blog-platform-scaling": {
+      "title": "Plataforma de Blog: Escala",
+      "description": "Feed, engajamento, eventos, busca, privacidade e recuperação ao escalar uma plataforma estilo Medium"
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"

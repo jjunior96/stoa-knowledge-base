@@ -4,7 +4,7 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-10 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
+12 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
@@ -16,6 +16,8 @@ Distributed systems, trade-offs and the vocabulary interviews assume you already
 | **Microfrontends**<br/>Independência de deploy, composição em runtime, Module Federation e o custo operacional que vem junto | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/microfrontends.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Offline-First vs Local-First**<br/>Quem detém a autoridade do dado, resolução de conflito com LWW e CRDT, e quando cada modelo cabe | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/offline-first-vs-local-first.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Perguntas de Entrevista de System Design**<br/>As 15 perguntas mais comuns em entrevistas de system design e o padrão central de cada solução | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/system-design-interview-questions.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **Plataforma de Blog: Escala**<br/>Feed, engajamento, eventos, busca, privacidade e recuperação ao escalar uma plataforma estilo Medium | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/blog-platform-scaling.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **Plataforma de Blog: Fundamentos**<br/>Do MVP à distribuição pública: modelo, publicação, upload de mídia, CDN e cache em uma plataforma estilo Medium | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/blog-platform-foundations.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **SLI, SLO e SLA**<br/>Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/sli-slo-sla.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Trade-offs Comuns de System Design**<br/>Latência versus throughput, consistência, cache, replicação, fila e as escolhas do dia a dia que entrevistas cobram justificar | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/common-tradeoffs.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
