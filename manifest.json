@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 10
+      "deckCount": 12
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -97,6 +97,20 @@
       "description": "Ciclo de vida, requisitos, testes, integração contínua, refatoração e as decisões que aparecem em entrevistas técnicas",
       "subject": "software-engineering",
       "slug": "software-engineering-fundamentals",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/blog-platform-foundations.csv": {
+      "title": "Plataforma de Blog: Fundamentos",
+      "description": "Do MVP à distribuição pública: modelo, publicação, upload de mídia, CDN e cache em uma plataforma estilo Medium",
+      "subject": "system-design",
+      "slug": "blog-platform-foundations",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/blog-platform-scaling.csv": {
+      "title": "Plataforma de Blog: Escala",
+      "description": "Feed, engajamento, eventos, busca, privacidade e recuperação ao escalar uma plataforma estilo Medium",
+      "subject": "system-design",
+      "slug": "blog-platform-scaling",
       "cardCount": 15
     },
     "subjects/system-design/decks/cap-theorem.csv": {
