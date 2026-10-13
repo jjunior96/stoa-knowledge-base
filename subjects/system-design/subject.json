@@ -34,6 +34,10 @@
       "title": "Perguntas de Entrevista de System Design",
       "description": "As 15 perguntas mais comuns em entrevistas de system design e o padrão central de cada solução"
     },
+    "common-tradeoffs": {
+      "title": "Trade-offs Comuns de System Design",
+      "description": "Latência versus throughput, consistência, cache, replicação, fila e as escolhas do dia a dia que entrevistas cobram justificar"
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
