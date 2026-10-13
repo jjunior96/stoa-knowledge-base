@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 9
+      "deckCount": 10
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -105,6 +105,13 @@
       "subject": "system-design",
       "slug": "cap-theorem",
       "cardCount": 20
+    },
+    "subjects/system-design/decks/common-tradeoffs.csv": {
+      "title": "Trade-offs Comuns de System Design",
+      "description": "Latência versus throughput, consistência, cache, replicação, fila e as escolhas do dia a dia que entrevistas cobram justificar",
+      "subject": "system-design",
+      "slug": "common-tradeoffs",
+      "cardCount": 15
     },
     "subjects/system-design/decks/event-loop-e-ssr.csv": {
       "title": "Event Loop e SSR",
