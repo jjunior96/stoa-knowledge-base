@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 12
+      "deckCount": 13
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -181,6 +181,13 @@
       "description": "As 15 perguntas mais comuns em entrevistas de system design e o padrão central de cada solução",
       "subject": "system-design",
       "slug": "system-design-interview-questions",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/url-shortener.csv": {
+      "title": "Encurtador de URLs",
+      "description": "Estimativa, geração de código curto sem colisão, cache de dado imutável, 301 vs 302, hot keys e distribuição global em um encurtador de URLs",
+      "subject": "system-design",
+      "slug": "url-shortener",
       "cardCount": 15
     },
     "subjects/ux-ui-design/decks/ux-ui-fundamentals.csv": {

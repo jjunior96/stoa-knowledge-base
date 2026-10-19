@@ -46,6 +46,10 @@
       "title": "Plataforma de Blog: Escala",
       "description": "Feed, engajamento, eventos, busca, privacidade e recuperação ao escalar uma plataforma estilo Medium"
     },
+    "url-shortener": {
+      "title": "Encurtador de URLs",
+      "description": "Estimativa, geração de código curto sem colisão, cache de dado imutável, 301 vs 302, hot keys e distribuição global em um encurtador de URLs"
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
