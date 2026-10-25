@@ -1,0 +1,16 @@
+pergunta;resposta
+O que o DNS resolve e por que quase nunca custa caro?;Traduz um nome em endereço IP, porque a rede entrega para endereços e não para nomes. A resposta fica em cache, então na maioria das chamadas a etapa custa perto de zero.
+O que significa o IP entregar pacotes por melhor esforço?;Ele não promete que o pacote chega, nem que chega na ordem em que saiu. Qualquer garantia acima disso é construída por outra camada.
+O que o TCP promete por cima do IP?;Entrega de bytes inteiros e em ordem. O preço é um aperto de mão de três mensagens antes do primeiro byte útil, que custa uma ida e volta.
+Qual a diferença entre banda e latência?;Banda é quantos bits cabem no fio por segundo; latência é quanto tempo o sinal leva para ir e voltar. Um cano mais largo não faz a água chegar mais rápido do outro lado.
+O que o TLS adiciona e quanto custa?;Combina chaves de criptografia e confere que o servidor é quem diz ser, impedindo que o caminho leia o tráfego. No TLS 1.3 custa uma ida e volta a mais.
+O que significa dizer que o HTTP é sem estado?;Cada requisição pode ser entendida sozinha, sem depender das anteriores. O estado, quando existe, é carregado explicitamente no pedido.
+Por que contratar mais banda não acelera uma chamada pequena entre regiões?;O tempo vem das idas e voltas, e cada uma é limitada pela distância, não pela largura do canal. Banda só ajuda quando o gargalo é volume de dados.
+Uma chamada nova a um gateway com RTT de 50 ms leva 200 ms. De onde vem a conta?;DNS em cache perto de zero, mais uma ida e volta para TCP, uma para TLS, uma para o HTTP e o tempo de trabalho do gateway. Três idas e voltas somam 150 ms de rede.
+Como a segunda chamada fica mais barata na mesma conexão?;A conexão aberta já pagou o TCP e o TLS, sobrando só a ida e volta do HTTP mais o trabalho do servidor. Por isso reaproveitar conexão (keep-alive, pool) é uma otimização de latência.
+Qual problema do HTTP/1.1 o HTTP/2 resolve, e qual ele deixa?;Multiplexa várias requisições na mesma conexão TCP, em vez de uma por vez. Mas como o TCP entrega em ordem, um pacote perdido trava todas as requisições da conexão.
+O HTTP/3 é mais rápido porque usa UDP?;Não. O QUIC sobre UDP continua confiável, mas entrega por fluxo, então a perda bloqueia só os fluxos afetados, e ainda embute o TLS 1.3 para encurtar o estabelecimento.
+A resposta de uma API de LLM chegando aos poucos usa WebSocket?;Não, é server-sent events: uma resposta HTTP comum que demora a terminar e manda eventos em pedaços. Continua sendo pedido e resposta.
+O que um timeout realmente informa?;Só que você parou de esperar, não o que aconteceu do outro lado. O pedido pode ter se perdido ou ter sido processado com a resposta perdida.
+Por que repetir uma cobrança após timeout é perigoso e como evitar?;Se o gateway já cobrou, repetir cobra duas vezes. A saída é a chave de idempotência, um identificador único que o servidor reconhece, ou consultar o estado da cobrança antes de repetir.
+Por que retentativas em várias camadas são uma armadilha?;Elas se multiplicam: três tentativas em cada uma de cinco camadas viram 243 chamadas no fim da fila, justamente quando o servidor já está lento.

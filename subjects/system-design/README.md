@@ -4,12 +4,13 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-13 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
+14 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
 | **Arquitetura de Software**<br/>O que conta como decisão arquitetural, atributos de qualidade, acoplamento e coesão, e por que não existe arquitetura certa | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/software-architecture.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **CAP Theorem**<br/>Trade-offs, linearizability e PACELC em sistemas distribuídos | 20 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/cap-theorem.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **Como a Internet Funciona**<br/>DNS, IP, TCP, TLS e HTTP/1.1 a HTTP/3: onde vão os milissegundos de uma chamada, banda versus latência e por que timeout é "não sei" | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/how-the-internet-works.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Encurtador de URLs**<br/>Estimativa, geração de código curto sem colisão, cache de dado imutável, 301 vs 302, hot keys e distribuição global em um encurtador de URLs | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/url-shortener.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Event Loop e SSR**<br/>Thread única, I/O-bound versus CPU-bound e o bloqueio que derruba um servidor Node | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/event-loop-e-ssr.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Idempotência**<br/>Por que retentativa segura é um requisito de projeto, não um detalhe de implementação | 12 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/idempotencia.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |

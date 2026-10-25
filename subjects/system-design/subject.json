@@ -50,6 +50,10 @@
       "title": "Encurtador de URLs",
       "description": "Estimativa, geração de código curto sem colisão, cache de dado imutável, 301 vs 302, hot keys e distribuição global em um encurtador de URLs"
     },
+    "how-the-internet-works": {
+      "title": "Como a Internet Funciona",
+      "description": "DNS, IP, TCP, TLS e HTTP/1.1 a HTTP/3: onde vão os milissegundos de uma chamada, banda versus latência e por que timeout é \"não sei\""
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
