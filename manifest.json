@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 13
+      "deckCount": 14
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -132,6 +132,13 @@
       "description": "Thread única, I/O-bound versus CPU-bound e o bloqueio que derruba um servidor Node",
       "subject": "system-design",
       "slug": "event-loop-e-ssr",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/how-the-internet-works.csv": {
+      "title": "Como a Internet Funciona",
+      "description": "DNS, IP, TCP, TLS e HTTP/1.1 a HTTP/3: onde vão os milissegundos de uma chamada, banda versus latência e por que timeout é \"não sei\"",
+      "subject": "system-design",
+      "slug": "how-the-internet-works",
       "cardCount": 15
     },
     "subjects/system-design/decks/idempotencia.csv": {
