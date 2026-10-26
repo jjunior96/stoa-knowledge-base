@@ -4,7 +4,7 @@
 
 Distributed systems, trade-offs and the vocabulary interviews assume you already have
 
-14 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
+15 decks · **[Browse this subject in Stoa →](https://stoaflow.com.br/catalog?subject=system-design)** · [All subjects](../../README.md)
 
 | Deck | Cards | |
 | --- | ---: | --- |
@@ -22,6 +22,7 @@ Distributed systems, trade-offs and the vocabulary interviews assume you already
 | **Plataforma de Blog: Fundamentos**<br/>Do MVP à distribuição pública: modelo, publicação, upload de mídia, CDN e cache em uma plataforma estilo Medium | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/blog-platform-foundations.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **SLI, SLO e SLA**<br/>Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/sli-slo-sla.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 | **Trade-offs Comuns de System Design**<br/>Latência versus throughput, consistência, cache, replicação, fila e as escolhas do dia a dia que entrevistas cobram justificar | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/common-tradeoffs.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
+| **Transações ACID**<br/>Atomicidade, consistência, isolamento e durabilidade numa transferência entre contas, níveis de isolamento do Postgres e até onde a garantia vale em cada banco | 15 | <a href="https://stoaflow.com.br/import?path=subjects/system-design/decks/acid-transactions.csv"><img src="../../.github/assets/add-to-stoa.svg" alt="Add to Stoa" height="28" /></a> |
 
 A deck opens in Stoa and shows itself before asking for anything — an account is only needed to keep it.
 

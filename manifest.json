@@ -34,7 +34,7 @@
     "system-design": {
       "title": "System Design",
       "description": "Distributed systems, trade-offs and the vocabulary interviews assume you already have",
-      "deckCount": 14
+      "deckCount": 15
     },
     "ux-ui-design": {
       "title": "Design UX/UI",
@@ -97,6 +97,13 @@
       "description": "Ciclo de vida, requisitos, testes, integração contínua, refatoração e as decisões que aparecem em entrevistas técnicas",
       "subject": "software-engineering",
       "slug": "software-engineering-fundamentals",
+      "cardCount": 15
+    },
+    "subjects/system-design/decks/acid-transactions.csv": {
+      "title": "Transações ACID",
+      "description": "Atomicidade, consistência, isolamento e durabilidade numa transferência entre contas, níveis de isolamento do Postgres e até onde a garantia vale em cada banco",
+      "subject": "system-design",
+      "slug": "acid-transactions",
       "cardCount": 15
     },
     "subjects/system-design/decks/blog-platform-foundations.csv": {

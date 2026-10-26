@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é uma transação?;Um grupo de operações que o banco trata como uma unidade só. Na transferência, o débito em A e o crédito em B entram juntos entre BEGIN e COMMIT.
+O que a sigla ACID quer dizer?;Atomicidade, Consistência, Isolamento e Durabilidade. São as quatro garantias que uma transação oferece.
+O que é atomicidade, com a transferência de R$ 100 como exemplo?;Tudo ou nada. Se o crédito em B falha, o débito em A é desfeito, e a soma das contas continua a mesma.
+O que é durabilidade?;Depois que o banco confirma o COMMIT, a transferência sobrevive à queda do servidor ou à falta de luz. Confirmado quer dizer gravado em disco.
+O que é consistência no ACID?;A transação leva o banco de um estado válido para outro estado válido, respeitando as regras que foram declaradas, como CHECK e chave estrangeira.
+O que é isolamento?;Cada transação se comporta como se estivesse sozinha, mesmo com outras rodando ao mesmo tempo. O nível de isolamento decide quanto uma enxerga da outra.
+O que acontece sem transação se a conexão cai entre o débito e o crédito?;O débito fica gravado e o crédito nunca acontece. Com A em 500 e B em 200, a soma vai de 700 para 600 e R$ 100 somem.
+Qual comando desfaz o que a transação já tinha feito?;ROLLBACK. O banco também faz isso sozinho quando a conexão cai antes do COMMIT, e o estado volta ao de antes do BEGIN.
+Como impedir que o saldo fique negativo dentro do próprio banco?;Declarando a regra com uma restrição, por exemplo CHECK (saldo >= 0). O banco recusa qualquer escrita que a quebre.
+Qual problema aparece quando duas transferências de R$ 100 leem o mesmo saldo de R$ 100 e gravam R$ 0?;Atualização perdida. Saem R$ 200 da conta, mas o saldo só cai R$ 100, porque as duas decidiram com base num saldo que a outra já ia mudar.
+Quais são os três níveis de isolamento do Postgres e o que muda entre eles?;Read Committed, Repeatable Read e Serializable. Quanto mais forte o nível, mais uma transação fica protegida das outras, e maior é o custo.
+Qual é o nível de isolamento padrão do Postgres?;Read Committed, segundo a documentação. Pode ser mudado por sessão ou por transação.
+Por que se diz que a consistência é responsabilidade sua e não só do banco?;O banco só barra o que foi declarado como regra. Se saldo maior ou igual a zero existe só num if do código, qualquer outro caminho que escreve no banco pode violar a regra.
+SQL tem ACID por padrão e NoSQL não tem?;Essa divisão não vale. A pergunta certa é até onde a garantia vale em cada banco e se ela vem pronta ou precisa ser pedida. O Postgres exige BEGIN para agrupar várias escritas.
+Como explicar ACID em voz alta numa entrevista?;A é tudo ou nada, C é o banco respeitando as regras declaradas, I é transações simultâneas sem se atropelar e D é o que foi confirmado sobreviver à queda. Use a transferência entre contas como exemplo único.
