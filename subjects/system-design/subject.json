@@ -54,6 +54,10 @@
       "title": "Como a Internet Funciona",
       "description": "DNS, IP, TCP, TLS e HTTP/1.1 a HTTP/3: onde vão os milissegundos de uma chamada, banda versus latência e por que timeout é \"não sei\""
     },
+    "acid-transactions": {
+      "title": "Transações ACID",
+      "description": "Atomicidade, consistência, isolamento e durabilidade numa transferência entre contas, níveis de isolamento do Postgres e até onde a garantia vale em cada banco"
+    },
     "sli-slo-sla": {
       "title": "SLI, SLO e SLA",
       "description": "Indicador, meta e contrato de nível de serviço, error budget e as pegadinhas clássicas de entrevista sobre confiabilidade"
