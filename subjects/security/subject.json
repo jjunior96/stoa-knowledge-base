@@ -1,0 +1,10 @@
+{
+  "title": "Segurança",
+  "description": "Como proteger senhas, contas e dados no dia a dia — hash e salt, gerenciador de senhas, 2FA, phishing, backup e criptografia de disco",
+  "decks": {
+    "security-fundamentals": {
+      "title": "Fundamentos de Segurança",
+      "description": "Hash e salt, senha longa e aleatória, gerenciador de senhas, 2FA por TOTP, phishing, ransomware e criptografia de disco"
+    }
+  }
+}

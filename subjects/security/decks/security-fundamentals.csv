@@ -1,0 +1,16 @@
+pergunta;resposta
+O que é uma função de hash?;Uma função que transforma qualquer entrada em uma string de tamanho fixo, como uma impressão digital. Não é encriptação, porque não existe caminho de volta.
+Por que usar bcrypt, PBKDF2 ou Argon2 e não SHA-512 para guardar senhas?;O SHA-512 foi feito para ser rápido, e um atacante com GPUs testa de milhões a bilhões de hashes por segundo. Os outros são lentos por projeto, o que derruba a taxa de tentativas dele.
+O que é salt?;Um valor aleatório, gerado por usuário e gravado aberto ao lado do hash. Ele entra no cálculo junto com a senha, então duas pessoas com a mesma senha acabam com hashes diferentes.
+O que é uma rainbow table?;Uma tabela de hashes pré-computados de palavras de dicionário e de suas variações. O atacante procura o hash vazado na tabela em vez de calcular tudo de novo.
+Por que trocar "a" por "@" ou "i" por "1" não deixa a senha forte?;Essas trocas já estão nos dicionários e nas rainbow tables. Uma senha derivada de palavra existente cai rápido, mesmo parecendo complicada.
+Quanto cada caractere a mais pesa numa senha totalmente aleatória?;Com cerca de 92 símbolos possíveis, cada caractere multiplica o espaço de busca por 92. Dez caracteres já dão cerca de 43 quintilhões de combinações.
+Quais são os três fatores de autenticação?;Algo que você sabe (a senha), algo que você tem (um app de 2FA ou uma chave física) e algo que você é (a biometria). Dois fatores combinam dois desses.
+Como funciona o código do 2FA por aplicativo (TOTP)?;App e servidor guardam o mesmo segredo, lido no QR Code, e cada um calcula um HMAC desse segredo com o horário atual em janelas de 30 segundos, truncado em 6 dígitos. Por isso o relógio do celular precisa estar sincronizado.
+Por que reutilizar a mesma senha em vários sites é o risco mais imediato?;Quando um site vaza, robôs testam o mesmo e-mail e a mesma senha em dezenas de outros. Com uma senha diferente por site, o estrago fica só no que vazou.
+Por que uma senha que você consegue decorar é fraca?;Se dá para memorizar, ela tem um padrão, e padrões estão nos dicionários. A senha forte é aleatória e longa, e quem guarda é o gerenciador de senhas.
+Como deve ser a senha mestra de um gerenciador de senhas?;Uma frase longa, a passphrase, com mais de 20 caracteres. É a única que você precisa decorar, então não dá para ser aleatória, e o comprimento compensa.
+Por que evitar receber o código de 2FA por SMS?;O número pode ser tomado com troca de SIM ou com engenharia social na operadora, e sem sinal o SMS nem chega. O app gera o código no próprio celular.
+O que é phishing e por que nenhuma proteção técnica resolve?;São mensagens em massa por e-mail, WhatsApp ou SMS, com um link falso, até alguém digitar os próprios dados. Quando a pessoa entrega a credencial, a defesa é não clicar em link de remetente desconhecido.
+Por que a senha de login não protege os dados de um notebook roubado?;Quem retira o SSD e o liga em outro computador lê tudo, sem passar pelo login. Só a criptografia de disco, como BitLocker, FileVault ou LUKS, impede isso.
+Por que só o backup protege de um ransomware, e que cuidado ele exige?;Arquivo encriptado não volta sem a chave, e pagar o resgate não garante nada. O backup precisa guardar versões de semanas atrás, senão você copia arquivos que já estavam encriptados.

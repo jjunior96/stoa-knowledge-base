@@ -21,6 +21,11 @@
       "description": "React, browser and interface engineering — the concepts behind the code you write every day",
       "deckCount": 2
     },
+    "security": {
+      "title": "Segurança",
+      "description": "Como proteger senhas, contas e dados no dia a dia — hash e salt, gerenciador de senhas, 2FA, phishing, backup e criptografia de disco",
+      "deckCount": 1
+    },
     "software-architecture": {
       "title": "Arquitetura de Software",
       "description": "Princípios estruturais por trás do código: como dividir sistemas em módulos, onde a complexidade deve morar e como avaliar o design antes de escrevê-lo",
@@ -83,6 +88,13 @@
       "description": "A pergunta mais comum em entrevista de React, do diff e das keys ao que o Virtual DOM não resolve",
       "subject": "frontend",
       "slug": "react-virtual-dom",
+      "cardCount": 15
+    },
+    "subjects/security/decks/security-fundamentals.csv": {
+      "title": "Fundamentos de Segurança",
+      "description": "Hash e salt, senha longa e aleatória, gerenciador de senhas, 2FA por TOTP, phishing, ransomware e criptografia de disco",
+      "subject": "security",
+      "slug": "security-fundamentals",
       "cardCount": 15
     },
     "subjects/software-architecture/decks/deep-and-shallow-modules.csv": {
